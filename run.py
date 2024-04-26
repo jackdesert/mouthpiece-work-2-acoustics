@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import quopri
 import shutil
+import email
 import ipdb
 
 # Path to your .warc file
@@ -23,7 +24,25 @@ HTML_DIR.mkdir(parents=True, exist_ok=True)
 ZFILL = 5
 
 # Only set this to small for fast iteration
-MAX = 500_000
+MAX = 50#0_000
+
+def plain(text):
+    """
+    Return the plain text part of an email body
+    """
+    msg = email.message_from_string(text)
+
+    # Initialize variable to store plain text
+    plain_text = ""
+
+    # Iterate through the message parts
+    for part in msg.walk():
+        # Check if the part is plain text
+        if part.get_content_type() == 'text/plain':
+            # Append the plain text to the variable
+            plain_text += part.get_payload()
+
+    return plain_text
 
 def build_filename(parent_id):
     """
@@ -75,6 +94,7 @@ with open(warc_file_path, 'rb') as warc_file:
         content = json.loads(content_bytes.decode())
         if 'rawEmail' in content:
             body = content['rawEmail']
+            body = plain(body)
             try:
                 # Remove the `=\n` in email bodies
                 body = quopri.decodestring(body).decode()
@@ -93,12 +113,16 @@ with open(warc_file_path, 'rb') as warc_file:
             #print(content)
             this_id = content['messageId']
             parent_id = content['topicFirstRecord']
-            subject = content['subject']
 
-            # Only need parents in mapping
-            subject_mapping[parent_id] = slugify(subject)
+            # For some reason parent_id is zero when it is the parent
+            if parent_id == 0:
+                parent_id = this_id
+                # Only need parents in mapping
+                subject = content['subject']
+                subject_mapping[parent_id] = slugify(subject)
+
             fname = build_filename(parent_id)
-            append_to_file(fname=fname, content=f'\n\n===========================================\n{content}')
+            append_to_file(fname=fname, content=f'\n\n===================================\n{content}\n----------------------------------\n')
             #topicNextRecord = content['topicNextRecord']
             #topicPrevRecord = content['topicPrevRecord']
 
