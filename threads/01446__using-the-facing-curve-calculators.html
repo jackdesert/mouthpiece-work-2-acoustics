@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>using the facing curve calculators (Mouthpiece Work Yahoo Group) </title>
+    <link rel='stylesheet' href='../style.css'>
+    <!-- Add any additional CSS or meta tags here -->
+</head>
+<body>
+    <main>
+        
+        
+          <div class='message'>
+            <div class='message__author'>FROM: merlin_williams_toronto (merlin_williams_toronto)</div>
+            <div class='message__subject'>SUBJECT: using the facing curve calculators</div>
+
+            <pre class='message__body'>I could use a little help with these things...
+
+I&#39;d like to be able to plug in the gauge sizes, facing length and tip 
+opening, and have the glass gauge numbers shown for a radial arc.
+
+That seems to be what these tables are intended for, but I&#39;m having 
+trouble getting them to work.
+
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: kwbradbury (Keith Bradbury)</div>
+            <div class='message__subject'>SUBJECT: Re: using the facing curve calculators</div>
+
+            <pre class='message__body'>First, do you have any experiance with using spreadsheets?  I need to know
+at what level to respond.
+
+What problems are you having?  Do you know where to start?
+
+__________________________________
+Do you Yahoo!?
+Free Pop-Up Blocker - Get it now
+http://companion.yahoo.com/
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: merlin_williams_toronto (merlin_williams_toronto)</div>
+            <div class='message__subject'>SUBJECT: Re: using the facing curve calculators</div>
+
+            <pre class='message__body'>Not a whole bunch. The spreadsheet program that I have here is part 
+of the Microsoft Works package.
+
+I&#39;m also interested in how to adapt the sheets for the mouthpieces I 
+work on. Much of what I&#39;m doing right now is with smaller tips. The 
+largest feeler I use on many of the measurements I&#39;m doing is .050.
+
+Has anyone done something similar using a scientific calculator? 
+Seems like it would be easier to have on the workbench.
+
+--- In MouthpieceWork@yahoogroups.com, Keith Bradbury 
+&lt;kwbradbury@y...> wrote:
+> First, do you have any experiance with using spreadsheets?  I need 
+to know
+> at what level to respond.
+> 
+> What problems are you having?  Do you know where to start?
+> 
+> __________________________________
+> Do you Yahoo!?
+> Free Pop-Up Blocker - Get it now
+> http://companion.yahoo.com/
+
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: kwbradbury (Keith Bradbury)</div>
+            <div class='message__subject'>SUBJECT: Re: using the facing curve calculators</div>
+
+            <pre class='message__body'>--- In MouthpieceWork@yahoogroups.com, "merlin_williams_toronto" 
+&lt;fred_bloggs_ca@y...> wrote:
+> Not a whole bunch. The spreadsheet program that I have here is part 
+> of the Microsoft Works package.
+> 
+> I&#39;m also interested in how to adapt the sheets for the mouthpieces 
+I 
+> work on. Much of what I&#39;m doing right now is with smaller tips. The 
+> largest feeler I use on many of the measurements I&#39;m doing is .050.
+
+Microsoft Works should be fine.  I stored the sample spreadsheet in 
+an older Excel 95 format so it could be read by most spreadsheet 
+software out there.
+
+It helps a lot to have basic spreadsheet skills.  Running through a 
+tutorial would be good if one is availale.  Otherwise, browse through 
+the Help menu.
+
+The inputs are the cells with blue text.  Not all spreadsheets use 
+this convention.  This is just how I layed out this one.
+
+I had set up this spreadsheet so you could put in a set of 5 "Spec" 
+readings from a Eric Brand system, fit a curve throught them, then 
+generate your own gage goals for facing (L) based on your own feelers 
+(F).  You can skip the Eric Brand step by deleting all the numbers in 
+the Spec column except the first one for .0015" and the last one for 
+Tip.  You need at least these two to create a facing curve.  
+
+The Spec for .0015" is the desired facing length.  The Spec at "Tip" 
+is what you want the glass gage to reed at the tip opening.  Zero is 
+shown if you want to read the tip opening at the very tip of the 
+mouthpiece.  If you want to read the tip inside the tip rail, you nee 
+to change the zero to a glass gage number that is the width of the 
+tip rail.  For a .030" wide tip rail, use 1.5 as a Spec for the Tip.
+
+Enter your desired tip opening at the bottom of the "F" column.  The 
+rest of the "F" column is the set of feeler gages.  If you have an 
+Eric Brand Spec, set them to the Eric Brand feelers at first.  Ajust 
+R and M until the Error Sum is minimzed.  This creates a radial arc 
+curve that is a good fit through the "Spec" numbers.  Once you have a 
+R and M you like, you can change the feelers in F to your set of 
+feelers and it will recalculate the glass gage targets (L) you need 
+to shoot for.  You can delete the rows you do not need or just ignore 
+them.
+
+The "L Inc" column is not important.  It was just my way of looking 
+at the feeler gage increments.  I concluded the Eric Brand set was 
+not complete enough to do the work I wanted.
+
+If you know your way around spradsheets, you can look at each cell to 
+see what formulas are in them and which cells they get their info 
+from.  Being able to reverse engineer a spreadsheet by looking in the 
+cells is a basic skill that helps in understanding spreadsheets 
+developed by someone else.
+
+I&#39;ll put a revised version of this spreadsheet on the Site.
+
+
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: merlin_williams_toronto (merlin_williams_toronto)</div>
+            <div class='message__subject'>SUBJECT: Re: using the facing curve calculators</div>
+
+            <pre class='message__body'>--- In MouthpieceWork@yahoogroups.com, "Keith Bradbury" 
+&lt;kwbradbury@y...> wrote:
+> Microsoft Works should be fine.  I stored the sample spreadsheet in 
+> an older Excel 95 format so it could be read by most spreadsheet 
+> software out there.
+
+The one thing Works doesn&#39;t seem to like is embedded charts - it 
+won&#39;t display them.
+
+>skip the Eric Brand step by deleting all the numbers in 
+> the Spec column except the first one for .0015" and the last one 
+for 
+> Tip.  You need at least these two to create a facing curve.  
+
+
+This is exactly what I ended up doing!
+
+It&#39;s very interesting to see what happens when you put in a known set 
+of measurements and compare them to a radial arc to see how close 
+they are.
+
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: kwbradbury (Keith Bradbury)</div>
+            <div class='message__subject'>SUBJECT: Re: using the facing curve calculators</div>
+
+            <pre class='message__body'>> 
+> The one thing Works doesn&#39;t seem to like is embedded charts - it 
+> won&#39;t display them.
+> 
+
+Were you able to make your own graph?  This is the real power of the 
+method.  You can plot what you are working on vs the goal curve.
+
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: merlin_williams_toronto (merlin_williams_toronto)</div>
+            <div class='message__subject'>SUBJECT: Re: using the facing curve calculators</div>
+
+            <pre class='message__body'>Yes, I was able to make graphs. They don&#39;t come out looking quite as 
+cool as yours though.
+
+I think there are some limitations on what this spreadsheet prog can 
+do.
+
+
+--- In MouthpieceWork@yahoogroups.com, "Keith Bradbury" 
+&lt;kwbradbury@y...> wrote:
+> > 
+> > The one thing Works doesn&#39;t seem to like is embedded charts - it 
+> > won&#39;t display them.
+> > 
+> 
+> Were you able to make your own graph?  This is the real power of 
+the 
+> method.  You can plot what you are working on vs the goal curve.
+
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: fgruenebaum (Fred Gruenebaum)</div>
+            <div class='message__subject'>SUBJECT: Re: using the facing curve calculators</div>
+
+            <pre class='message__body'>Hi Keith,
+
+I&#39;m looking for the email address/phone number for E-Z Table, Bob Arias.  I&#39;ve lost all of the info.  Can you help me out?
+
+Thanks,
+
+Fred</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: kwbradbury (Keith Bradbury)</div>
+            <div class='message__subject'>SUBJECT: E-Z Lap</div>
+
+            <pre class='message__body'>Their Email address is in the Photos - Sanding section as a caption 
+to the photo of the E-Z Lap plate.  Their phone nimber is on a 
+sticker on the bottom of mine.  I do not have it handy.
+
+SB95060@... 
+
+
+</pre>
+          </div>
+          
+        
+    </main>
+    <div class='footer'>
+      <hr />
+    </div>
+</body>
+</html>

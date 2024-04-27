@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>OT: Power supply to motor on DIY Reed Profiling machine (Mouthpiece Work Yahoo Group) </title>
+    <link rel='stylesheet' href='../style.css'>
+    <!-- Add any additional CSS or meta tags here -->
+</head>
+<body>
+    <main>
+        
+        
+          <div class='message'>
+            <div class='message__author'>FROM: moeaaron (Barry Levine)</div>
+            <div class='message__subject'>SUBJECT: OT: Power supply to motor on DIY Reed Profiling machine</div>
+
+            <pre class='message__body'>Does anyone here know anything about switching power supplies, of the 
+sort sold nowadays to power laptops and some LCD monitors?
+
+I&#39;m using one to power an 18V motor used in a reed profiling machine, 
+and it&#39;s giving me certain problems.
+It supplies 19V at 7.7A, and seems to be adequate for the task.
+
+The reed profiler:
+http://groups.yahoo.com/group/MouthpieceWork/photos/recent/219646748/view
+
+The power supply turns the profiler motor nicely for extended periods 
+without a problem,  but the motor will start ONLY if I power up by 
+switching on AC into the supply (basically plug it in) with the motor 
+already connected
+
+I put a switch on the motor for convenience, but with the power supply 
+already energized, flipping the motor on/off switch does nothing, or 
+advances the motor a few degrees.
+
+I&#39;m guessing that the sudden large current draw of the switched on motor 
+"looks" like a short circuit to the power supply&#39;s safety circuitry, and 
+it powers down automatically.
+
+For whatever reason, switching the whole thing via AC works - although 
+there is about 1 sec delay before the motor starts.
+
+Is there some kind of fix I can apply?
+
+Barry Levine
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: keith29236 (Edward McLean)</div>
+            <div class='message__subject'>SUBJECT: Re: OT: Power supply to motor on DIY Reed Profiling machine</div>
+
+            <pre class='message__body'>
+
+
+
+--- In MouthpieceWork@yahoogroups.com, Barry Levine &lt;barrylevine@...> wrote:
+>
+> Does anyone here know anything about switching power supplies, of the 
+> sort sold nowadays to power laptops and some LCD monitors?
+> 
+> I&#39;m using one to power an 18V motor used in a reed profiling machine, 
+> and it&#39;s giving me certain problems.
+> It supplies 19V at 7.7A, and seems to be adequate for the task.
+> 
+> The reed profiler:
+> http://groups.yahoo.com/group/MouthpieceWork/photos/recent/219646748/view
+> 
+> The power supply turns the profiler motor nicely for extended periods 
+> without a problem,  but the motor will start ONLY if I power up by 
+> switching on AC into the supply (basically plug it in) with the motor 
+> already connected
+> 
+> I put a switch on the motor for convenience, but with the power supply 
+> already energized, flipping the motor on/off switch does nothing, or 
+> advances the motor a few degrees.
+> 
+> I&#39;m guessing that the sudden large current draw of the switched on motor 
+> "looks" like a short circuit to the power supply&#39;s safety circuitry, and 
+> it powers down automatically.
+> 
+> For whatever reason, switching the whole thing via AC works - although 
+> there is about 1 sec delay before the motor starts.
+> 
+> Is there some kind of fix I can apply?
+> 
+> Barry Levine
+>
+ Assuming that the switching supply is driving a DC motor, I would try an electrolytic capacitor of say 100 Microfarad or more, voltage 25 Volt or more, across the motor terminals, observing the polarity of the capacitor.
+  Eddie McLean
+
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: moeaaron (barrylevine)</div>
+            <div class='message__subject'>SUBJECT: Re: OT: Power supply to motor on DIY Reed Profiling machine</div>
+
+            <pre class='message__body'> 
+
+Thanks. Yes, DC motor. Already tried 1250 & 2200 uF, which only
+jogged the motor a bit when it was switched on. 
+
+I posted this earlier,
+but hasn&#39;t appeared yet, don&#39;t know if it will, so I thought to answer
+you directly and thank for the tip. 
+
+At least the motor will run if
+started up by plugging in the supply. It&#39;s just not as nice a setup.
+
+
+Barry 
+
+>> 
+> Assuming that the switching supply is driving a DC
+motor, I would try an electrolytic capacitor of say 100 Microfarad or
+more, voltage 25 Volt or more, across the motor terminals, observing the
+polarity of the capacitor.
+> Eddie McLean
+> 
+> __.
+
+ </pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: lancelotburt (MartinMods)</div>
+            <div class='message__subject'>SUBJECT: Re: OT: Power supply to motor on DIY Reed Profiling machine</div>
+
+            <pre class='message__body'>Then put the switch on the AC line.
+
+
+
+
+
+________________________________
+ From: barrylevine &lt;barrylevine@...>
+To: mouthpiecework@yahoogroups.com 
+Sent: Wednesday, August 14, 2013 4:52 PM
+Subject: Re: [MouthpieceWork] Re: OT: Power supply to motor on DIY Reed Profiling machine
+ 
+
+
+  
+Thanks.  Yes, DC motor. Already tried 1250 & 2200 uF, which only jogged the motor a bit when it was switched on.
+I posted this earlier, but hasn&#39;t appeared yet, don&#39;t know if it will, so I thought to answer you directly and thank for the tip.
+At least the motor will run if started up by plugging in the supply. It&#39;s just not as nice a setup.
+Barry
+>
+>Assuming that the switching supply is driving a DC motor, I would try an electrolytic capacitor of say 100 Microfarad or more, voltage 25 Volt or more, across the motor terminals, observing the polarity of the capacitor.
+>Eddie McLean
+>
+>
+>__.
+ 
+ </pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: anchornm (Will Schmit)</div>
+            <div class='message__subject'>SUBJECT: Re: OT: Power supply to motor on DIY Reed Profiling machine</div>
+
+            <pre class='message__body'>I use meanwell power supplies in both, my CNC lathe/mill, and my spindle drivers.
+I have killed a few, because of swarf getting into the cases.  They are relatively cheap, and I always have an extra on the shelf.
+
+
+
+
+________________________________
+ From: barrylevine &lt;barrylevine@norwoodlight.com>
+To: mouthpiecework@yahoogroups.com 
+Sent: Wednesday, August 14, 2013 5:52 PM
+Subject: Re: [MouthpieceWork] Re: OT: Power supply to motor on DIY Reed Profiling machine
+ 
+
+
+  
+Thanks.  Yes, DC motor. Already tried 1250 & 2200 uF, which only jogged the motor a bit when it was switched on.
+I posted this earlier, but hasn&#39;t appeared yet, don&#39;t know if it will, so I thought to answer you directly and thank for the tip.
+At least the motor will run if started up by plugging in the supply. It&#39;s just not as nice a setup.
+Barry
+>
+>Assuming that the switching supply is driving a DC motor, I would try an electrolytic capacitor of say 100 Microfarad or more, voltage 25 Volt or more, across the motor terminals, observing the polarity of the capacitor.
+>Eddie McLean
+>
+>
+>__.
+ 
+ </pre>
+          </div>
+          
+        
+    </main>
+    <div class='footer'>
+      <hr />
+    </div>
+</body>
+</html>

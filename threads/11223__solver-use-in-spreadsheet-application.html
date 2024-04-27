@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Solver use in Spreadsheet Application (Mouthpiece Work Yahoo Group) </title>
+    <link rel='stylesheet' href='../style.css'>
+    <!-- Add any additional CSS or meta tags here -->
+</head>
+<body>
+    <main>
+        
+        
+          <div class='message'>
+            <div class='message__author'>FROM: mike_wilkens2000 (Mike)</div>
+            <div class='message__subject'>SUBJECT: Solver use in Spreadsheet Application</div>
+
+            <pre class='message__body'>I am using the "Mouthpiece Facing Curve Analysis" (credited to Mojo & A. Donaldson) in Neo Office, and I want to start using the solver to calculate best fit curves. I believe it works very similar to Excel, so I hope that will not be a complicating issue.
+
+What I&#39;m having difficulty getting my head around is how the solver works. My math skills haven&#39;t been used in 20 years, and I&#39;ve never used a spreadsheet solver before.
+
+Is there anyone willing to walk me through it?
+
+This is where I&#39;m at:
+
+1) I set the Error Sum cell as the "Target Cell" and check on "minimum."
+
+2) Where it says "By changing cells" I think I need to highlight cell "Elliptical Radius."
+
+When I try this, I get "Err:502" in many of the "Calculated Curve Fit" and "Diff" columns, which I believe means I&#39;m getting multiple possible solutions.
+
+3) Then there are the "Limiting Conditions." I&#39;m guessing I use these limits to get only one solution?
+
+Thanks in advance for any help!
+
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: kwbradbury (Keith Bradbury)</div>
+            <div class='message__subject'>SUBJECT: Re: Solver use in Spreadsheet Application</div>
+
+            <pre class='message__body'>I am not familiar with Neo Office.  
+ 
+There are 3 paramaters that need to be solved to get an ellipse of best fit for a set of data.  It depends on how the sheet is set up as to which 3 parameters these are.
+ 
+I went looking for the spreadsheet you are trying to use but I could not find one with an error sum cell in it.  What is the file name and where is it located?
+
+
+
+________________________________
+From: Mike &lt;mike@mikewilkens.com>
+To: MouthpieceWork@yahoogroups.com 
+Sent: Friday, April 26, 2013 8:44 PM
+Subject: [MouthpieceWork] Solver use in Spreadsheet Application
+
+  
+I am using the "Mouthpiece Facing Curve Analysis" (credited to Mojo & A. Donaldson) in Neo Office, and I want to start using the solver to calculate best fit curves. I believe it works very similar to Excel, so I hope that will not be a complicating issue.
+
+What I&#39;m having difficulty getting my head around is how the solver works. My math skills haven&#39;t been used in 20 years, and I&#39;ve never used a spreadsheet solver before.
+
+Is there anyone willing to walk me through it?
+
+This is where I&#39;m at:
+
+1) I set the Error Sum cell as the "Target Cell" and check on "minimum."
+
+2) Where it says "By changing cells" I think I need to highlight cell "Elliptical Radius."
+
+When I try this, I get "Err:502" in many of the "Calculated Curve Fit" and "Diff" columns, which I believe means I&#39;m getting multiple possible solutions.
+
+3) Then there are the "Limiting Conditions." I&#39;m guessing I use these limits to get only one solution?
+
+Thanks in advance for any help!
+
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: mike_wilkens2000 (Mike)</div>
+            <div class='message__subject'>SUBJECT: Re: Solver use in Spreadsheet Application</div>
+
+            <pre class='message__body'>It&#39;s the "Facing Curve Worksheet." I believe I got it from the Yahoo Workgroup Files, but I&#39;m having trouble finding it again, so maybe I got it elsewhere.
+
+I&#39;ll e-mail it to you so we can be sure to be on the same page.
+
+So far I have just been playing with the Elliptical Radius and the Curve Start numbers to get the best match and thus minimize the error sum. I&#39;m guessing this is what the solver does, (only better!)
+
+When I try to do this I get an error message saying "The model is not linear."
+
+Thanks!
+
+--- In MouthpieceWork@yahoogroups.com, Keith Bradbury &lt;kwbradbury@...> wrote:
+>
+> I am not familiar with Neo Office.Â  
+> Â 
+> There are 3 paramaters that need to be solved to get an ellipse of best fit for a set of data.Â  It depends on how the sheet is set up as to which 3 parameters these are.
+> Â 
+> I went looking for the spreadsheet you are trying to use but I could not find one with an error sum cell in it.Â  What is the file name and where is it located?
+> 
+> 
+> 
+> ________________________________
+> From: Mike &lt;mike@...>
+> To: MouthpieceWork@yahoogroups.com 
+> Sent: Friday, April 26, 2013 8:44 PM
+> Subject: [MouthpieceWork] Solver use in Spreadsheet Application
+> 
+> Â  
+> I am using the "Mouthpiece Facing Curve Analysis" (credited to Mojo & A. Donaldson) in Neo Office, and I want to start using the solver to calculate best fit curves. I believe it works very similar to Excel, so I hope that will not be a complicating issue.
+> 
+> What I&#39;m having difficulty getting my head around is how the solver works. My math skills haven&#39;t been used in 20 years, and I&#39;ve never used a spreadsheet solver before.
+> 
+> Is there anyone willing to walk me through it?
+> 
+> This is where I&#39;m at:
+> 
+> 1) I set the Error Sum cell as the "Target Cell" and check on "minimum."
+> 
+> 2) Where it says "By changing cells" I think I need to highlight cell "Elliptical Radius."
+> 
+> When I try this, I get "Err:502" in many of the "Calculated Curve Fit" and "Diff" columns, which I believe means I&#39;m getting multiple possible solutions.
+> 
+> 3) Then there are the "Limiting Conditions." I&#39;m guessing I use these limits to get only one solution?
+> 
+> Thanks in advance for any help!
+>
+
+
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: mike_wilkens2000 (Mike)</div>
+            <div class='message__subject'>SUBJECT: Re: Solver use in Spreadsheet Application</div>
+
+            <pre class='message__body'>After a little more playing around and research I think I understand my problem and figured I would post it here in case it helps anyone else.
+
+I downloaded a free trial of Excel and after adding on the solver feature it worked exactly like it is supposed to. While doing this I realized there are different solver settings in the Excel version, including the "GRG Non-linear" solver, which is the one to use for this type of equation.
+
+I am trying to find a free spreadsheet program that can do this, but (as far as I know) google docs and NeoOffice don&#39;t have non-linear solver features.
+
+OpenOffice (free open-source software) has an extension (add-on) called Solvit which apparently has a non-linear equation solver (some details at http://extensions.openoffice.org/en/node/4659 ) Although I haven&#39;t been able to get it to solve for facing curves.
+
+Is there anyone here that has gotten OpenOffice Solvit to work solving facing curves? It would be great to have a free working solution for this.
+
+In the meantime I&#39;ll be using the one month free demo version of MS Office.
+
+Thanks in advance for any help!
+
+--- In MouthpieceWork@yahoogroups.com, "Mike" &lt;mike@...> wrote:
+>
+> It&#39;s the "Facing Curve Worksheet." I believe I got it from the Yahoo Workgroup Files, but I&#39;m having trouble finding it again, so maybe I got it elsewhere.
+> 
+> I&#39;ll e-mail it to you so we can be sure to be on the same page.
+> 
+> So far I have just been playing with the Elliptical Radius and the Curve Start numbers to get the best match and thus minimize the error sum. I&#39;m guessing this is what the solver does, (only better!)
+> 
+> When I try to do this I get an error message saying "The model is not linear."
+> 
+> Thanks!
+> 
+> --- In MouthpieceWork@yahoogroups.com, Keith Bradbury &lt;kwbradbury@> wrote:
+> >
+> > I am not familiar with Neo Office.Â  
+> > Â 
+> > There are 3 paramaters that need to be solved to get an ellipse of best fit for a set of data.Â  It depends on how the sheet is set up as to which 3 parameters these are.
+> > Â 
+> > I went looking for the spreadsheet you are trying to use but I could not find one with an error sum cell in it.Â  What is the file name and where is it located?
+> > 
+> > 
+> > 
+> > ________________________________
+> > From: Mike &lt;mike@>
+> > To: MouthpieceWork@yahoogroups.com 
+> > Sent: Friday, April 26, 2013 8:44 PM
+> > Subject: [MouthpieceWork] Solver use in Spreadsheet Application
+> > 
+> > Â  
+> > I am using the "Mouthpiece Facing Curve Analysis" (credited to Mojo & A. Donaldson) in Neo Office, and I want to start using the solver to calculate best fit curves. I believe it works very similar to Excel, so I hope that will not be a complicating issue.
+> > 
+> > What I&#39;m having difficulty getting my head around is how the solver works. My math skills haven&#39;t been used in 20 years, and I&#39;ve never used a spreadsheet solver before.
+> > 
+> > Is there anyone willing to walk me through it?
+> > 
+> > This is where I&#39;m at:
+> > 
+> > 1) I set the Error Sum cell as the "Target Cell" and check on "minimum."
+> > 
+> > 2) Where it says "By changing cells" I think I need to highlight cell "Elliptical Radius."
+> > 
+> > When I try this, I get "Err:502" in many of the "Calculated Curve Fit" and "Diff" columns, which I believe means I&#39;m getting multiple possible solutions.
+> > 
+> > 3) Then there are the "Limiting Conditions." I&#39;m guessing I use these limits to get only one solution?
+> > 
+> > Thanks in advance for any help!
+> >
+>
+
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: kwbradbury (Keith Bradbury)</div>
+            <div class='message__subject'>SUBJECT: Re: Solver use in Spreadsheet Application</div>
+
+            <pre class='message__body'>It is possible to set up a spreadsheet for iterative calculations.  I used to do it decades ago before built-in solvers were available.  It is a lot more involved and more things can go wrong.
+
+I would suggest surfing eBay and look for some deals on MS Office.   I use a 2003 version still.  Some are there under $50.
+
+On May 6, 2013, at 4:39 AM, "Mike" &lt;mike@...> wrote:
+
+> After a little more playing around and research I think I understand my problem and figured I would post it here in case it helps anyone else.
+> 
+> I downloaded a free trial of Excel and after adding on the solver feature it worked exactly like it is supposed to. While doing this I realized there are different solver settings in the Excel version, including the "GRG Non-linear" solver, which is the one to use for this type of equation.
+> 
+> I am trying to find a free spreadsheet program that can do this, but (as far as I know) google docs and NeoOffice don&#39;t have non-linear solver features.
+> 
+> OpenOffice (free open-source software) has an extension (add-on) called Solvit which apparently has a non-linear equation solver (some details at http://extensions.openoffice.org/en/node/4659 ) Although I haven&#39;t been able to get it to solve for facing curves.
+> 
+> Is there anyone here that has gotten OpenOffice Solvit to work solving facing curves? It would be great to have a free working solution for this.
+> 
+> In the meantime I&#39;ll be using the one month free demo version of MS Office.
+> 
+> Thanks in advance for any help!
+> 
+> --- In MouthpieceWork@yahoogroups.com, "Mike" &lt;mike@...> wrote:
+> >
+> > It&#39;s the "Facing Curve Worksheet." I believe I got it from the Yahoo Workgroup Files, but I&#39;m having trouble finding it again, so maybe I got it elsewhere.
+> > 
+> > I&#39;ll e-mail it to you so we can be sure to be on the same page.
+> > 
+> > So far I have just been playing with the Elliptical Radius and the Curve Start numbers to get the best match and thus minimize the error sum. I&#39;m guessing this is what the solver does, (only better!)
+> > 
+> > When I try to do this I get an error message saying "The model is not linear."
+> > 
+> > Thanks!
+> > 
+> > --- In MouthpieceWork@yahoogroups.com, Keith Bradbury &lt;kwbradbury@> wrote:
+> > >
+> > > I am not familiar with Neo Office.Â  
+> > > Â 
+> > > There are 3 paramaters that need to be solved to get an ellipse of best fit for a set of data.Â  It depends on how the sheet is set up as to which 3 parameters these are.
+> > > Â 
+> > > I went looking for the spreadsheet you are trying to use but I could not find one with an error sum cell in it.Â  What is the file name and where is it located?
+> > > 
+> > > 
+> > > 
+> > > ________________________________
+> > > From: Mike &lt;mike@>
+> > > To: MouthpieceWork@yahoogroups.com 
+> > > Sent: Friday, April 26, 2013 8:44 PM
+> > > Subject: [MouthpieceWork] Solver use in Spreadsheet Application
+> > > 
+> > > Â  
+> > > I am using the "Mouthpiece Facing Curve Analysis" (credited to Mojo & A. Donaldson) in Neo Office, and I want to start using the solver to calculate best fit curves. I believe it works very similar to Excel, so I hope that will not be a complicating issue.
+> > > 
+> > > What I&#39;m having difficulty getting my head around is how the solver works. My math skills haven&#39;t been used in 20 years, and I&#39;ve never used a spreadsheet solver before.
+> > > 
+> > > Is there anyone willing to walk me through it?
+> > > 
+> > > This is where I&#39;m at:
+> > > 
+> > > 1) I set the Error Sum cell as the "Target Cell" and check on "minimum."
+> > > 
+> > > 2) Where it says "By changing cells" I think I need to highlight cell "Elliptical Radius."
+> > > 
+> > > When I try this, I get "Err:502" in many of the "Calculated Curve Fit" and "Diff" columns, which I believe means I&#39;m getting multiple possible solutions.
+> > > 
+> > > 3) Then there are the "Limiting Conditions." I&#39;m guessing I use these limits to get only one solution?
+> > > 
+> > > Thanks in advance for any help!
+> > >
+> >
+> 
+> 
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: megaohmer (megaohmer)</div>
+            <div class='message__subject'>SUBJECT: Re: Solver use in Spreadsheet Application</div>
+
+            <pre class='message__body'>This sounds pretty nice but i wonder if you dont get just as good results "eyeballing" the curve against the measurements curve in a chart. Then manyually varying the parameters of the elipse. Ive seen a case or 2 when a point is clearly an anomally and i wouldnt want the solver to include it in the optimization.You&#39;re still fitting an elipse to get a smooth curve but you&#39;re anomally points could have a significantly bigger error than the other points.
+
+--- In MouthpieceWork@yahoogroups.com, Keith Bradbury &lt;kwbradbury@...> wrote:
+>
+> It is possible to set up a spreadsheet for iterative calculations.  I used to do it decades ago before built-in solvers were available.  It is a lot more involved and more things can go wrong.
+> 
+> I would suggest surfing eBay and look for some deals on MS Office.   I use a 2003 version still.  Some are there under $50.
+> 
+> On May 6, 2013, at 4:39 AM, "Mike" &lt;mike@...> wrote:
+> 
+> > After a little more playing around and research I think I understand my problem and figured I would post it here in case it helps anyone else.
+> > 
+> > I downloaded a free trial of Excel and after adding on the solver feature it worked exactly like it is supposed to. While doing this I realized there are different solver settings in the Excel version, including the "GRG Non-linear" solver, which is the one to use for this type of equation.
+> > 
+> > I am trying to find a free spreadsheet program that can do this, but (as far as I know) google docs and NeoOffice don&#39;t have non-linear solver features.
+> > 
+> > OpenOffice (free open-source software) has an extension (add-on) called Solvit which apparently has a non-linear equation solver (some details at http://extensions.openoffice.org/en/node/4659 ) Although I haven&#39;t been able to get it to solve for facing curves.
+> > 
+> > Is there anyone here that has gotten OpenOffice Solvit to work solving facing curves? It would be great to have a free working solution for this.
+> > 
+> > In the meantime I&#39;ll be using the one month free demo version of MS Office.
+> > 
+> > Thanks in advance for any help!
+> > 
+> > --- In MouthpieceWork@yahoogroups.com, "Mike" &lt;mike@> wrote:
+> > >
+> > > It&#39;s the "Facing Curve Worksheet." I believe I got it from the Yahoo Workgroup Files, but I&#39;m having trouble finding it again, so maybe I got it elsewhere.
+> > > 
+> > > I&#39;ll e-mail it to you so we can be sure to be on the same page.
+> > > 
+> > > So far I have just been playing with the Elliptical Radius and the Curve Start numbers to get the best match and thus minimize the error sum. I&#39;m guessing this is what the solver does, (only better!)
+> > > 
+> > > When I try to do this I get an error message saying "The model is not linear."
+> > > 
+> > > Thanks!
+> > > 
+> > > --- In MouthpieceWork@yahoogroups.com, Keith Bradbury &lt;kwbradbury@> wrote:
+> > > >
+> > > > I am not familiar with Neo Office.Ã  
+> > > > Ã 
+> > > > There are 3 paramaters that need to be solved to get an ellipse of best fit for a set of data.Ã  It depends on how the sheet is set up as to which 3 parameters these are.
+> > > > Ã 
+> > > > I went looking for the spreadsheet you are trying to use but I could not find one with an error sum cell in it.Ã  What is the file name and where is it located?
+> > > > 
+> > > > 
+> > > > 
+> > > > ________________________________
+> > > > From: Mike &lt;mike@>
+> > > > To: MouthpieceWork@yahoogroups.com 
+> > > > Sent: Friday, April 26, 2013 8:44 PM
+> > > > Subject: [MouthpieceWork] Solver use in Spreadsheet Application
+> > > > 
+> > > > Ã  
+> > > > I am using the "Mouthpiece Facing Curve Analysis" (credited to Mojo & A. Donaldson) in Neo Office, and I want to start using the solver to calculate best fit curves. I believe it works very similar to Excel, so I hope that will not be a complicating issue.
+> > > > 
+> > > > What I&#39;m having difficulty getting my head around is how the solver works. My math skills haven&#39;t been used in 20 years, and I&#39;ve never used a spreadsheet solver before.
+> > > > 
+> > > > Is there anyone willing to walk me through it?
+> > > > 
+> > > > This is where I&#39;m at:
+> > > > 
+> > > > 1) I set the Error Sum cell as the "Target Cell" and check on "minimum."
+> > > > 
+> > > > 2) Where it says "By changing cells" I think I need to highlight cell "Elliptical Radius."
+> > > > 
+> > > > When I try this, I get "Err:502" in many of the "Calculated Curve Fit" and "Diff" columns, which I believe means I&#39;m getting multiple possible solutions.
+> > > > 
+> > > > 3) Then there are the "Limiting Conditions." I&#39;m guessing I use these limits to get only one solution?
+> > > > 
+> > > > Thanks in advance for any help!
+> > > >
+> > >
+> > 
+> >
+>
+
+
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: kwbradbury (Keith Bradbury)</div>
+            <div class='message__subject'>SUBJECT: Re: Solver use in Spreadsheet Application</div>
+
+            <pre class='message__body'>It is easy to throw out a point you do not want to include in your fit.  Just delete the diff^2 calculation in the cell for that point.
+ 
+The fit is a way to study a curve.  But how you determine a target curve can be very different.  
+ 
+
+________________________________
+From: megaohmer &lt;megaohmer@...>
+To: MouthpieceWork@yahoogroups.com 
+Sent: Friday, May 10, 2013 4:06 PM
+Subject: [MouthpieceWork] Re: Solver use in Spreadsheet Application
+
+  
+This sounds pretty nice but i wonder if you dont get just as good results "eyeballing" the curve against the measurements curve in a chart. Then manyually varying the parameters of the elipse. Ive seen a case or 2 when a point is clearly an anomally and i wouldnt want the solver to include it in the optimization.You&#39;re still fitting an elipse to get a smooth curve but you&#39;re anomally points could have a significantly bigger error than the other points.
+
+--- In mailto:MouthpieceWork%40yahoogroups.com, Keith Bradbury &lt;kwbradbury@...> wrote:
+>
+> It is possible to set up a spreadsheet for iterative calculations. I used to do it decades ago before built-in solvers were available. It is a lot more involved and more things can go wrong.
+> 
+> I would suggest surfing eBay and look for some deals on MS Office. I use a 2003 version still. Some are there under $50.
+> 
+> On May 6, 2013, at 4:39 AM, "Mike" &lt;mike@...> wrote:
+> 
+> > After a little more playing around and research I think I understand my problem and figured I would post it here in case it helps anyone else.
+> > 
+> > I downloaded a free trial of Excel and after adding on the solver feature it worked exactly like it is supposed to. While doing this I realized there are different solver settings in the Excel version, including the "GRG Non-linear" solver, which is the one to use for this type of equation.
+> > 
+> > I am trying to find a free spreadsheet program that can do this, but (as far as I know) google docs and NeoOffice don&#39;t have non-linear solver features.
+> > 
+> > OpenOffice (free open-source software) has an extension (add-on) called Solvit which apparently has a non-linear equation solver (some details at http://extensions.openoffice.org/en/node/4659 ) Although I haven&#39;t been able to get it to solve for facing curves.
+> > 
+> > Is there anyone here that has gotten OpenOffice Solvit to work solving facing curves? It would be great to have a free working solution for this.
+> > 
+> > In the meantime I&#39;ll be using the one month free demo version of MS Office.
+> > 
+> > Thanks in advance for any help!
+> > 
+> > --- In mailto:MouthpieceWork%40yahoogroups.com, "Mike" &lt;mike@> wrote:
+> > >
+> > > It&#39;s the "Facing Curve Worksheet." I believe I got it from the Yahoo Workgroup Files, but I&#39;m having trouble finding it again, so maybe I got it elsewhere.
+> > > 
+> > > I&#39;ll e-mail it to you so we can be sure to be on the same page.
+> > > 
+> > > So far I have just been playing with the Elliptical Radius and the Curve Start numbers to get the best match and thus minimize the error sum. I&#39;m guessing this is what the solver does, (only better!)
+> > > 
+> > > When I try to do this I get an error message saying "The model is not linear."
+> > > 
+> > > Thanks!
+> > > 
+> > > --- In mailto:MouthpieceWork%40yahoogroups.com, Keith Bradbury &lt;kwbradbury@> wrote:
+> > > >
+> > > > I am not familiar with Neo Office.Ã‚ 
+> > > > Ã‚ 
+> > > > There are 3 paramaters that need to be solved to get an ellipse of best fit for a set of data.Ã‚ It depends on how the sheet is set up as to which 3 parameters these are.
+> > > > Ã‚ 
+> > > > I went looking for the spreadsheet you are trying to use but I could not find one with an error sum cell in it.Ã‚ What is the file name and where is it located?
+> > > > 
+> > > > 
+> > > > 
+> > > > ________________________________
+> > > > From: Mike &lt;mike@>
+> > > > To: mailto:MouthpieceWork%40yahoogroups.com 
+> > > > Sent: Friday, April 26, 2013 8:44 PM
+> > > > Subject: [MouthpieceWork] Solver use in Spreadsheet Application
+> > > > 
+> > > > Ã‚ 
+> > > > I am using the "Mouthpiece Facing Curve Analysis" (credited to Mojo & A. Donaldson) in Neo Office, and I want to start using the solver to calculate best fit curves. I believe it works very similar to Excel, so I hope that will not be a complicating issue.
+> > > > 
+> > > > What I&#39;m having difficulty getting my head around is how the solver works. My math skills haven&#39;t been used in 20 years, and I&#39;ve never used a spreadsheet solver before.
+> > > > 
+> > > > Is there anyone willing to walk me through it?
+> > > > 
+> > > > This is where I&#39;m at:
+> > > > 
+> > > > 1) I set the Error Sum cell as the "Target Cell" and check on "minimum."
+> > > > 
+> > > > 2) Where it says "By changing cells" I think I need to highlight cell "Elliptical Radius."
+> > > > 
+> > > > When I try this, I get "Err:502" in many of the "Calculated Curve Fit" and "Diff" columns, which I believe means I&#39;m getting multiple possible solutions.
+> > > > 
+> > > > 3) Then there are the "Limiting Conditions." I&#39;m guessing I use these limits to get only one solution?
+> > > > 
+> > > > Thanks in advance for any help!
+> > > >
+> > >
+> > 
+> >
+>
+
+
+</pre>
+          </div>
+          
+          <div class='message'>
+            <div class='message__author'>FROM: fidlershorns (fidlershorns)</div>
+            <div class='message__subject'>SUBJECT: Re: Solver use in Spreadsheet Application</div>
+
+            <pre class='message__body'>When you get it all figured out can you post a DIY guide on this tool?
+
+I have used Excel back to Lotus 123 and even Open office for years and still have trouble with the mouthpiece spreadsheets and the solver.
+Thanks!
+
+> > On May 6, 2013, at 4:39 AM, "Mike" &lt;mike@> wrote:
+> > 
+> > > After a little more playing around and research I think I understand my problem and figured I would post it here in case it helps anyone else.
+> > > 
+> > > I downloaded a free trial of Excel and after adding on the solver feature it worked exactly like it is supposed to. While doing this I realized there are different solver settings in the Excel version, including the "GRG Non-linear" solver, which is the one to use for this type of equation.
+> > > 
+> > > I am trying to find a free spreadsheet program that can do this, but (as far as I know) google docs and NeoOffice don&#39;t have non-linear solver features.
+> > > 
+> > > OpenOffice (free open-source software) has an extension (add-on) called Solvit which apparently has a non-linear equation solver (some details at http://extensions.openoffice.org/en/node/4659 ) Although I haven&#39;t been able to get it to solve for facing curves.
+> > > 
+> > > Is there anyone here that has gotten OpenOffice Solvit to work solving facing curves? It would be great to have a free working solution for this.
+> > > 
+> > > In the meantime I&#39;ll be using the one month free demo version of MS Office.
+> > > 
+> > > Thanks in advance for any help!
+> > > 
+> > > --- In MouthpieceWork@yahoogroups.com, "Mike" &lt;mike@> wrote:
+> > > >
+> > > > It&#39;s the "Facing Curve Worksheet." I believe I got it from the Yahoo Workgroup Files, but I&#39;m having trouble finding it again, so maybe I got it elsewhere.
+> > > > 
+> > > > I&#39;ll e-mail it to you so we can be sure to be on the same page.
+> > > > 
+> > > > So far I have just been playing with the Elliptical Radius and the Curve Start numbers to get the best match and thus minimize the error sum. I&#39;m guessing this is what the solver does, (only better!)
+> > > > 
+> > > > When I try to do this I get an error message saying "The model is not linear."
+> > > > 
+> > > > Thanks!
+> > > > 
+> > > > --- In MouthpieceWork@yahoogroups.com, Keith Bradbury &lt;kwbradbury@> wrote:
+> > > > >
+> > > > > I am not familiar with Neo Office.Ã  
+> > > > > Ã 
+> > > > > There are 3 paramaters that need to be solved to get an ellipse of best fit for a set of data.Ã  It depends on how the sheet is set up as to which 3 parameters these are.
+> > > > > Ã 
+> > > > > I went looking for the spreadsheet you are trying to use but I could not find one with an error sum cell in it.Ã  What is the file name and where is it located?
+> > > > > 
+> > > > > 
+> > > > > 
+> > > > > ________________________________
+> > > > > From: Mike &lt;mike@>
+> > > > > To: MouthpieceWork@yahoogroups.com 
+> > > > > Sent: Friday, April 26, 2013 8:44 PM
+> > > > > Subject: [MouthpieceWork] Solver use in Spreadsheet Application
+> > > > > 
+> > > > > Ã  
+> > > > > I am using the "Mouthpiece Facing Curve Analysis" (credited to Mojo & A. Donaldson) in Neo Office, and I want to start using the solver to calculate best fit curves. I believe it works very similar to Excel, so I hope that will not be a complicating issue.
+> > > > > 
+> > > > > What I&#39;m having difficulty getting my head around is how the solver works. My math skills haven&#39;t been used in 20 years, and I&#39;ve never used a spreadsheet solver before.
+> > > > > 
+> > > > > Is there anyone willing to walk me through it?
+> > > > > 
+> > > > > This is where I&#39;m at:
+> > > > > 
+> > > > > 1) I set the Error Sum cell as the "Target Cell" and check on "minimum."
+> > > > > 
+> > > > > 2) Where it says "By changing cells" I think I need to highlight cell "Elliptical Radius."
+> > > > > 
+> > > > > When I try this, I get "Err:502" in many of the "Calculated Curve Fit" and "Diff" columns, which I believe means I&#39;m getting multiple possible solutions.
+> > > > > 
+> > > > > 3) Then there are the "Limiting Conditions." I&#39;m guessing I use these limits to get only one solution?
+> > > > > 
+> > > > > Thanks in advance for any help!
+> > > > >
+> > > >
+> > > 
+> > >
+> >
+>
+
+
+
+</pre>
+          </div>
+          
+        
+    </main>
+    <div class='footer'>
+      <hr />
+    </div>
+</body>
+</html>
