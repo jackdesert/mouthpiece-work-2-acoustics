@@ -1,0 +1,2 @@
+#! /bin/bash
+rsync -avr index.html threads style.css run.py templates  jd@68.183.202.162:/var/www/mouthpiece-work

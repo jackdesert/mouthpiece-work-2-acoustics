@@ -17,13 +17,13 @@ ENV = Environment(loader=FileSystemLoader('templates'))
 # Path to your .warc file
 warc_file_path = '/Users/saundraraney/Downloads/mouthpiecework.UdewYP7.warc'
 
-HTML_DIR = Path('html')
+HTML_DIR = Path('threads')
 NON_SLUG_CHARS = re.compile(r'[^a-z0-9]')
 SPACE = ' '
 HYPHEN = '-'
 SEPARATOR = '---------------------------'
 INDEX_TITLE = 'Mouthpiece Work Yahoo Group'
-INDEX_SUBTITLE = 'Messages from the archive'
+INDEX_SUBTITLE = 'The human readable archive'
 
 # Delete and recreate html directory
 # so it's fresh each time
@@ -189,7 +189,7 @@ def write_index(parents):
     template = ENV.get_template('index.html')
     context = dict(parents=parents.values(), title=INDEX_TITLE, subtitle=INDEX_SUBTITLE)
     html = template.render(context)
-    with open('html/index.html', 'w') as writer:
+    with open('index.html', 'w') as writer:
         writer.write(html)
 
 def write_html_threads(parents):

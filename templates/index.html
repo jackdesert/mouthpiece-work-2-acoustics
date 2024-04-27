@@ -4,7 +4,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>{{ title }}</title>
-    <link rel='stylesheet' href='../static/style.css'>
+    <link rel='stylesheet' href='style.css'>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         <ol>
           {% for parent in parents %}
           <li>
-              <a href='{{ parent.filename_if_parent }}'>
+              <a href='threads/{{ parent.filename_if_parent }}'>
                   {{ parent.subject }}
               </a>
               <div class='index__author'>({{ parent.author_short }})</div>
