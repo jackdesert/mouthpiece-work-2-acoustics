@@ -28,7 +28,7 @@ HTML_DIR.mkdir(parents=True, exist_ok=True)
 ZFILL = 5
 
 # Only set this to small for fast iteration
-MAX = 1000
+MAX = 10
 
 def plain(text):
     """
@@ -87,8 +87,23 @@ def slugify(text):
     text = text.replace(SPACE, HYPHEN)
     return text
 
+class Message:
+    __slots__ = ('meta','body', 'children')
+    def __init__(self, *, meta):
+        self.meta = meta
+        self.body = None
+        self.children = []
+
+    @property
+    def subject(self):
+        return self.meta['subject']
+
+    def __repr__(self):
+        return f'Message ({self.subject})'
+
+
+parents = {}
 subject_mapping = {}
-types = set()
 # Open the .warc file
 with open(warc_file_path, 'rb') as warc_file:
     # Iterate over the records in the .warc file
@@ -126,6 +141,7 @@ with open(warc_file_path, 'rb') as warc_file:
                 # Not sure why we get this sometimes
                 pass
             append_to_file(fname=fname, content=body)
+            message.body = body
             #print(body)
             #print('\n')
         else:
@@ -134,15 +150,21 @@ with open(warc_file_path, 'rb') as warc_file:
             this_id = content['messageId']
             parent_id = content['topicFirstRecord']
 
+            message = Message(meta=content)
+
             # For some reason parent_id is zero when it is the parent
             if parent_id == 0:
                 parent_id = this_id
                 # Only need parents in mapping
                 subject = content['subject']
                 subject_mapping[parent_id] = slugify(subject)
+                parents[parent_id] = message
+            else:
+                parents[parent_id].children.append(message)
 
             fname = build_filename(parent_id)
             append_to_file(fname=fname, content=f'\n\n===================================\n{content}\n----------------------------------\n')
+
             #topicNextRecord = content['topicNextRecord']
             #topicPrevRecord = content['topicPrevRecord']
 
@@ -163,3 +185,6 @@ lines.append('</ol>')
 
 with open('html/index.html', 'w') as writer:
     writer.write('\n'.join(lines))
+
+ipdb.set_trace()
+1
