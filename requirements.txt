@@ -1,2 +1,4 @@
 warcio
 ipdb
+mail-parser
+html2text

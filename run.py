@@ -1,11 +1,14 @@
 from warcio.archiveiterator import ArchiveIterator
+from html2text import html2text
 import re
+import mailparser
 import json
 from pathlib import Path
 import quopri
 import shutil
 import email
 import ipdb
+from pydoc import help as ph
 
 # Path to your .warc file
 warc_file_path = '/Users/saundraraney/Downloads/mouthpiecework.UdewYP7.warc'
@@ -14,6 +17,7 @@ HTML_DIR = Path('html')
 NON_SLUG_CHARS = re.compile(r'[^a-z0-9]')
 SPACE = ' '
 HYPHEN = '-'
+SEPARATOR = '---------------------------'
 
 # Delete and recreate html directory
 # so it's fresh each time
@@ -24,25 +28,40 @@ HTML_DIR.mkdir(parents=True, exist_ok=True)
 ZFILL = 5
 
 # Only set this to small for fast iteration
-MAX = 50#0_000
+MAX = 1000
 
 def plain(text):
     """
     Return the plain text part of an email body
+
+    Adapted from https://pythonhint.com/post/9826809957529457/parsing-multipart-emails-in-python-and-saving-attachments
     """
-    msg = email.message_from_string(text)
+    # Replace &quot; with double quote
+    # Because otherwise when splitting on semicolon inside `headers['Content-Type']`,
+    # the splitting happens incorrectly because there are
+    text = text.replace('&quot;', '"')
+    msg = mailparser.parse_from_string(text)
+    if msg.defects:
+        err = f'Defects found while parsing message: {msg.defects}'
+        # We ignore super long messages that have defects because the first
+        # one we found was a digest over 50_000 characters
+        if len(text) > 10_000:
+            return err
+        # run it twice through conversion to make sure it takes
+        body = html2text(html2text(msg.body))
+        return f'{err}\n\n{body}'
+    if len(msg.text_plain) > 0:
+        return SEPARATOR.join(msg.text_plain)
+    elif len(msg.text_html) > 0:
+        # process twice with html2text to make sure it takes
+        return f'This html message parsed with html2text {SEPARATOR}' + html2text(html2text(SEPARATOR.join(msg.text_html)))
+    elif len(msg.body) == 0:
+        return '(No message body found for this email)'
+    else:
+        ipdb.set_trace()
+        1
+        return ''
 
-    # Initialize variable to store plain text
-    plain_text = ""
-
-    # Iterate through the message parts
-    for part in msg.walk():
-        # Check if the part is plain text
-        if part.get_content_type() == 'text/plain':
-            # Append the plain text to the variable
-            plain_text += part.get_payload()
-
-    return plain_text
 
 def build_filename(parent_id):
     """
@@ -95,6 +114,7 @@ with open(warc_file_path, 'rb') as warc_file:
         if 'rawEmail' in content:
             body = content['rawEmail']
             body = plain(body)
+            body = body.replace('&gt;', '>')
             try:
                 # Remove the `=\n` in email bodies
                 body = quopri.decodestring(body).decode()
