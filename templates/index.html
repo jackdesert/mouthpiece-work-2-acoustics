@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='../static/style.css'>
+</head>
+
+<body>
+  <h1>{{ title }}</h1>
+  <div class='subtitle'>{{ subtitle }}</div>
+    <main>
+        {% block content %}
+        <ol>
+          {% for parent in parents %}
+          <li>
+              <a href='{{ parent.filename_if_parent }}'>
+                  {{ parent.subject }}
+              </a>
+              <div class='index__author'>({{ parent.author_short }})</div>
+          </li>
+          {% endfor %}
+        </ol>
+        {% endblock %}
+        </ol>
+    </main>
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+html{
+    font-size: 20px;
+    font-family: roman;
+    font-family: arial,sans-serif;
+}
+html,div,ul,ol,h1,h2,h3{
+    margin: 0;
+    padding: 0;
+    font-size: 1.1rem;
+}
+
+ol{
+  margin-left: 4rem;
+  }
+
+
+.message
+{
+  font-size: 1.2rem;
+  margin-top: 5rem;
+  background: yellow;
+}
+.message__author,
+.message__subject
+{
+  font-size: 1.3rem;
+  background: #8ff;
+}
+
+.index__author
+{
+  font-size: 0.8rem;
+  display: inline;
+  color: #888;
+}
+
+.footer
+{
+  height: 2rem;
+  background: black;
+}

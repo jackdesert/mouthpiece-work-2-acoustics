@@ -9,6 +9,10 @@ import shutil
 import email
 import ipdb
 from pydoc import help as ph
+from jinja2 import Environment, FileSystemLoader
+
+# Create a Jinja2 environment
+ENV = Environment(loader=FileSystemLoader('templates'))
 
 # Path to your .warc file
 warc_file_path = '/Users/saundraraney/Downloads/mouthpiecework.UdewYP7.warc'
@@ -18,6 +22,8 @@ NON_SLUG_CHARS = re.compile(r'[^a-z0-9]')
 SPACE = ' '
 HYPHEN = '-'
 SEPARATOR = '---------------------------'
+INDEX_TITLE = 'Mouthpiece Work Yahoo Group'
+INDEX_SUBTITLE = 'Messages from the archive'
 
 # Delete and recreate html directory
 # so it's fresh each time
@@ -28,7 +34,7 @@ HTML_DIR.mkdir(parents=True, exist_ok=True)
 ZFILL = 5
 
 # Only set this to small for fast iteration
-MAX = 10
+MAX = 100_000
 
 def plain(text):
     """
@@ -63,29 +69,7 @@ def plain(text):
         return ''
 
 
-def build_filename(parent_id):
-    """
-    Where to write the data
-    """
-    subject_slug = subject_mapping.get(parent_id, 'unknown')
-    parent_id_filled = str(parent_id).zfill(ZFILL)
-    # Store as a text file so it shows line feeds
-    parent_slug = f'{parent_id_filled}__{subject_slug}.txt'
-    return HTML_DIR / parent_slug
 
-def append_to_file(*, content:str, fname:Path):
-    with fname.open('a') as appender:
-        appender.write(content)
-
-def slugify(text):
-    """
-    Remove non-url-friendly chars
-    """
-    text = text.lower().strip()
-    text = NON_SLUG_CHARS.sub(SPACE, text)
-    text = text.strip()
-    text = text.replace(SPACE, HYPHEN)
-    return text
 
 class Message:
     __slots__ = ('meta','body', 'children')
@@ -98,93 +82,128 @@ class Message:
     def subject(self):
         return self.meta['subject']
 
+    @property
+    def id_(self):
+        return self.meta['messageId']
+
+    @property
+    def filename_if_parent(self):
+        """
+        Remove non-url-friendly chars
+
+        Only use this if it is a parent
+        """
+        text = self.subject.lower().strip()
+        text = NON_SLUG_CHARS.sub(SPACE, text)
+        text = text.strip()
+        text = text.replace(SPACE, HYPHEN)
+        id_zfilled = str(self.id_).zfill(ZFILL)
+        return f'{id_zfilled}__{text}.html'
+
+    @property
+    def author_short(self):
+        return self.meta['yahooAlias']
+
+    @property
+    def author(self):
+        alias = self.meta['yahooAlias']
+        author_ = self.meta['author']
+        return f'{alias} ({author_})'
+
     def __repr__(self):
         return f'Message ({self.subject})'
 
 
-parents = {}
-subject_mapping = {}
-# Open the .warc file
-with open(warc_file_path, 'rb') as warc_file:
-    # Iterate over the records in the .warc file
-    count = 0
-    for record in ArchiveIterator(warc_file):
-        count += 1
-        if count > MAX:
-            break
-        # Get the URL of the response
-        # Headers of interest include:
-        headers = record.rec_headers
+def build_parents():
+    parents = {}
+    all_messages = []
+    # Open the .warc file
+    with open(warc_file_path, 'rb') as warc_file:
+        # Iterate over the records in the .warc file
+        count = 0
+        for record in ArchiveIterator(warc_file):
+            count += 1
+            if count > MAX:
+                break
+            # Get the URL of the response
+            # Headers of interest include:
+            headers = record.rec_headers
 
-        url = headers.get_header('WARC-Target-URI')
-        date = headers.get_header('WARC-Date')
-        # Get the content of the response
-        content_bytes = record.content_stream().read()
+            url = headers.get_header('WARC-Target-URI')
+            date = headers.get_header('WARC-Date')
+            # Get the content of the response
+            content_bytes = record.content_stream().read()
 
-        # These appear to come in pairs.
-        # First there is a JSON blob describing the content
-        # Then the next record is the (email?) body
-        # probably json
-        content = json.loads(content_bytes.decode())
-        if 'rawEmail' in content:
-            body = content['rawEmail']
-            body = plain(body)
-            body = body.replace('&gt;', '>')
-            try:
-                # Remove the `=\n` in email bodies
-                body = quopri.decodestring(body).decode()
-            except UnicodeDecodeError:
-                # Sometimes this fails...perhaps because utf8 is the wrong encoding..
-                pass
-            except ValueError:
-                #ValueError: string argument should contain only ASCII characters
-                # Not sure why we get this sometimes
-                pass
-            append_to_file(fname=fname, content=body)
-            message.body = body
-            #print(body)
-            #print('\n')
-        else:
-            # This happens first
-            #print(content)
-            this_id = content['messageId']
-            parent_id = content['topicFirstRecord']
-
-            message = Message(meta=content)
-
-            # For some reason parent_id is zero when it is the parent
-            if parent_id == 0:
-                parent_id = this_id
-                # Only need parents in mapping
-                subject = content['subject']
-                subject_mapping[parent_id] = slugify(subject)
-                parents[parent_id] = message
+            # These appear to come in pairs.
+            # First there is a JSON blob describing the content
+            # Then the next record is the (email?) body
+            # probably json
+            content = json.loads(content_bytes.decode())
+            if 'rawEmail' in content:
+                body = content['rawEmail']
+                body = plain(body)
+                body = body.replace('&gt;', '>')
+                try:
+                    # Remove the `=\n` in email bodies
+                    body = quopri.decodestring(body).decode()
+                except UnicodeDecodeError:
+                    # Sometimes this fails...perhaps because utf8 is the wrong encoding..
+                    pass
+                except ValueError:
+                    #ValueError: string argument should contain only ASCII characters
+                    # Not sure why we get this sometimes
+                    pass
+                message.body = body
             else:
-                parents[parent_id].children.append(message)
+                this_id = content['messageId']
+                parent_id = content['topicFirstRecord']
+                all_messages.append(this_id)
 
-            fname = build_filename(parent_id)
-            append_to_file(fname=fname, content=f'\n\n===================================\n{content}\n----------------------------------\n')
+                message = Message(meta=content)
 
-            #topicNextRecord = content['topicNextRecord']
-            #topicPrevRecord = content['topicPrevRecord']
+                # For some reason parent_id is zero when it is the parent
+                if parent_id == 0:
+                    parent_id = this_id
+                    # Only need parents in mapping
+                    subject = content['subject']
+                    parents[parent_id] = message
+                else:
+                    try:
+                        parents[parent_id].children.append(message)
+                    except KeyError:
+                        # Not sure why we are missing parent with id 6560, 6863
+                        # So we create a surrogate parent...note the subject will contain RE
+                        print(f'WARNING: Creating surrogate parent')
+                        parents[parent_id] = Message(meta={**content, 'messageId': parent_id})
 
-            # There are attachments listed, but the urls no longer work (yimg.com)
-            # attachments = content['attachments']
+    return parents
 
 
-        # Do something with the URL and content
-        #print("URL:", url)
-        #print("Content:", content)
+def write_index(parents):
+    list_items = []
+    for parent_id, parent in parents.items():
+        link = parent.filename_if_parent
+        subject = parent.subject
+        list_items.append((link, subject))
+
+    template = ENV.get_template('index.html')
+    context = dict(parents=parents.values(), title=INDEX_TITLE, subtitle=INDEX_SUBTITLE)
+    html = template.render(context)
+    with open('html/index.html', 'w') as writer:
+        writer.write(html)
+
+def write_html_threads(parents):
+    template = ENV.get_template('thread.html')
+    for parent_id_,parent in parents.items():
+        context = dict(title=INDEX_TITLE, parent=parent, messages = [parent, *parent.children])
+        html = template.render(context)
+        with open(HTML_DIR / parent.filename_if_parent, 'w') as writer:
+            writer.write(html)
 
 
-lines = ['<h1>Hello</h1>', '<ol>']
-for parent_id_, subject_ in subject_mapping.items():
-    fname_ = build_filename(parent_id_)
-    lines.append(f'<li><a href="../{fname_}" target="_blank">{subject_}</a></li>')
-lines.append('</ol>')
 
-with open('html/index.html', 'w') as writer:
-    writer.write('\n'.join(lines))
+if __name__ == '__main__':
+    parents_ = build_parents()
+    write_html_threads(parents_)
+    write_index(parents_)
 
-ipdb.set_trace()
-1
