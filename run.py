@@ -1,15 +1,15 @@
-from warcio.archiveiterator import ArchiveIterator
-from html2text import html2text
-import re
-import mailparser
-import json
-from pathlib import Path
-import quopri
-import shutil
 import email
-import ipdb
+import json
+import quopri
+import re
+import shutil
+from pathlib import Path
 from pydoc import help as ph
+
+import mailparser
+from html2text import html2text
 from jinja2 import Environment, FileSystemLoader
+from warcio.archiveiterator import ArchiveIterator
 
 # Create a Jinja2 environment
 ENV = Environment(loader=FileSystemLoader('templates'))
@@ -24,6 +24,7 @@ HYPHEN = '-'
 SEPARATOR = '---------------------------'
 INDEX_TITLE = 'Mouthpiece Work Yahoo Group'
 INDEX_SUBTITLE = 'The human readable archive'
+SOURCE_CODE = 'https://github.com/jackdesert/mouthpiece-work'
 
 # Delete and recreate html directory
 # so it's fresh each time
@@ -35,6 +36,7 @@ ZFILL = 5
 
 # Only set this to small for fast iteration
 MAX = 100_000
+
 
 def plain(text):
     """
@@ -60,19 +62,18 @@ def plain(text):
         return SEPARATOR.join(msg.text_plain)
     elif len(msg.text_html) > 0:
         # process twice with html2text to make sure it takes
-        return f'This html message parsed with html2text {SEPARATOR}' + html2text(html2text(SEPARATOR.join(msg.text_html)))
+        return f'This html message parsed with html2text {SEPARATOR}' + html2text(
+            html2text(SEPARATOR.join(msg.text_html))
+        )
     elif len(msg.body) == 0:
         return '(No message body found for this email)'
     else:
-        ipdb.set_trace()
-        1
-        return ''
-
-
+        raise ValueError('No Appropriate message body')
 
 
 class Message:
-    __slots__ = ('meta','body', 'children')
+    __slots__ = ('meta', 'body', 'children')
+
     def __init__(self, *, meta):
         self.meta = meta
         self.body = None
@@ -150,7 +151,7 @@ def build_parents():
                     # Sometimes this fails...perhaps because utf8 is the wrong encoding..
                     pass
                 except ValueError:
-                    #ValueError: string argument should contain only ASCII characters
+                    # ValueError: string argument should contain only ASCII characters
                     # Not sure why we get this sometimes
                     pass
                 message.body = body
@@ -173,8 +174,10 @@ def build_parents():
                     except KeyError:
                         # Not sure why we are missing parent with id 6560, 6863
                         # So we create a surrogate parent...note the subject will contain RE
-                        print(f'WARNING: Creating surrogate parent')
-                        parents[parent_id] = Message(meta={**content, 'messageId': parent_id})
+                        print(f'WARNING: Creating surrogate parent for {parent_id}')
+                        parents[parent_id] = Message(
+                            meta={**content, 'messageId': parent_id}
+                        )
 
     return parents
 
@@ -187,23 +190,32 @@ def write_index(parents):
         list_items.append((link, subject))
 
     template = ENV.get_template('index.html')
-    context = dict(parents=parents.values(), title=INDEX_TITLE, subtitle=INDEX_SUBTITLE)
+    context = dict(
+        parents=parents.values(),
+        title=INDEX_TITLE,
+        subtitle=INDEX_SUBTITLE,
+        source_code=SOURCE_CODE,
+    )
     html = template.render(context)
     with open('index.html', 'w') as writer:
         writer.write(html)
 
+
 def write_html_threads(parents):
     template = ENV.get_template('thread.html')
-    for parent_id_,parent in parents.items():
-        context = dict(title=INDEX_TITLE, parent=parent, messages = [parent, *parent.children])
+    for parent_id_, parent in parents.items():
+        context = dict(
+            title=INDEX_TITLE,
+            parent=parent,
+            messages=[parent, *parent.children],
+            source_code=SOURCE_CODE,
+        )
         html = template.render(context)
         with open(HTML_DIR / parent.filename_if_parent, 'w') as writer:
             writer.write(html)
-
 
 
 if __name__ == '__main__':
     parents_ = build_parents()
     write_html_threads(parents_)
     write_index(parents_)
-

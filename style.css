@@ -22,6 +22,10 @@ pre {
 }
 
 
+.content
+{
+  max-width: 70rem;
+}
 
 
 .message__body,
@@ -52,8 +56,10 @@ pre {
   color: #888;
 }
 
-.footer
+footer
 {
-  height: 2rem;
-  background: black;
+  background: #ddd;
+  margin: 1rem 0;
+  padding: 1rem;
 }
+

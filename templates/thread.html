@@ -1,28 +1,23 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>{{ messages[0].subject }} ({{ title }}) </title>
+{% extends "base.html" %}
+{% block title %}
+    <title>{{ messages[0].subject }} ({{ title }})</title>
+{% endblock %}
+
+{% block stylesheet %}
+    {# Stylesheet reference is different because files are in threads/ dir #}
     <link rel='stylesheet' href='../style.css'>
-    <!-- Add any additional CSS or meta tags here -->
-</head>
-<body>
-    <main>
-        {% block content %}
-        {% for message in messages %}
-          <div class='message'>
+{% endblock %}
+
+{% block content %}
+    <div class='breadcrumb'>
+      <a href='/'>Mouthpiece Work</a> / {{ messages[0].subject }}
+    </div>
+    {% for message in messages %}
+        <div class='message'>
             <div class='message__author'>FROM: {{ message.author }}</div>
             <div class='message__subject'>SUBJECT: {{ message.subject }}</div>
 
             <pre class='message__body'>{{ message.body }}</pre>
-          </div>
-          {% endfor %}
-        {% endblock %}
-    </main>
-    <div class='footer'>
-      <hr />
-    </div>
-</body>
-</html>
-
+        </div>
+    {% endfor %}
+{% endblock %}
