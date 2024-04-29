@@ -9,8 +9,12 @@ html,div,ul,ol,h1,h2,h3{
     font-size: 1.1rem;
 }
 
-ol{
-  margin-left: 4rem;
+ol, ul{
+  list-style-position: inside;
+}
+li
+{
+  padding-left: 0.5rem;
 }
 
 pre {
@@ -54,6 +58,14 @@ pre {
   font-size: 0.8rem;
   display: inline;
   color: #888;
+}
+
+.year-banner
+{
+  margin-top: 2rem;
+  padding: 0.5rem;
+  background: #ddd;
+  font-size: 1.5rem;
 }
 
 footer

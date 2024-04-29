@@ -14,6 +14,11 @@
       <a href='..'>Mouthpiece Work</a> / {{ messages[0].subject }}
     </div>
     {% for message in messages %}
+        <!--
+          Metadata:
+          {{ message.meta_json }}
+        -->
+
         <div class='message'>
             <div class='message__author'>FROM: {{ message.author }}</div>
             <div class='message__subject'>SUBJECT: {{ message.subject }}</div>

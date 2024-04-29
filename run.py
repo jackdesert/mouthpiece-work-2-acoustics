@@ -5,6 +5,9 @@ import re
 import shutil
 from pathlib import Path
 from pydoc import help as ph
+from collections import defaultdict
+from datetime import datetime
+import ipdb
 
 import mailparser
 from html2text import html2text
@@ -12,7 +15,7 @@ from jinja2 import Environment, FileSystemLoader
 from warcio.archiveiterator import ArchiveIterator
 
 # Only set this to small for fast iteration
-MAX = 100_000
+MAX = 2000_000
 
 INDEX_TITLE = 'Mouthpiece Work Yahoo Group'
 INDEX_SUBTITLE = 'The human readable archive'
@@ -85,6 +88,12 @@ class Message:
     def subject(self):
         return self.meta['subject']
 
+    @property
+    def meta_json(self):
+        """
+        Return meta as well-formatted json
+        """
+        return json.dumps(self.meta, indent=4)
     @property
     def id_(self):
         return self.meta['messageId']
@@ -185,15 +194,14 @@ def build_parents():
 
 
 def write_index(parents):
-    list_items = []
-    for parent_id, parent in parents.items():
-        link = parent.filename_if_parent
-        subject = parent.subject
-        list_items.append((link, subject))
+    parents_by_year = defaultdict(list)
+    for parent in parents.values():
+        year = datetime.utcfromtimestamp(parent.meta['date']).year
+        parents_by_year[year].append(parent)
 
     template = ENV.get_template('index.html')
     context = dict(
-        parents=parents.values(),
+        parents_by_year=parents_by_year,
         title=INDEX_TITLE,
         subtitle=INDEX_SUBTITLE,
         source_code=SOURCE_CODE,
