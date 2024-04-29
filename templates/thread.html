@@ -10,7 +10,8 @@
 
 {% block content %}
     <div class='breadcrumb'>
-      <a href='/'>Mouthpiece Work</a> / {{ messages[0].subject }}
+      {# Home is /mouthpiece-work #}
+      <a href='..'>Mouthpiece Work</a> / {{ messages[0].subject }}
     </div>
     {% for message in messages %}
         <div class='message'>

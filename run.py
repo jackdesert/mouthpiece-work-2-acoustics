@@ -11,20 +11,24 @@ from html2text import html2text
 from jinja2 import Environment, FileSystemLoader
 from warcio.archiveiterator import ArchiveIterator
 
+# Only set this to small for fast iteration
+MAX = 100_000
+
+INDEX_TITLE = 'Mouthpiece Work Yahoo Group'
+INDEX_SUBTITLE = 'The human readable archive'
+SOURCE_CODE = 'https://github.com/jackdesert/mouthpiece-work'
+
 # Create a Jinja2 environment
 ENV = Environment(loader=FileSystemLoader('templates'))
 
 # Path to your .warc file
-warc_file_path = '/Users/saundraraney/Downloads/mouthpiecework.UdewYP7.warc'
+WARC_FILE_PATH = 'warc/mouthpiecework.UdewYP7.warc.gz'
 
 HTML_DIR = Path('threads')
 NON_SLUG_CHARS = re.compile(r'[^a-z0-9]')
 SPACE = ' '
 HYPHEN = '-'
 SEPARATOR = '---------------------------'
-INDEX_TITLE = 'Mouthpiece Work Yahoo Group'
-INDEX_SUBTITLE = 'The human readable archive'
-SOURCE_CODE = 'https://github.com/jackdesert/mouthpiece-work'
 
 # Delete and recreate html directory
 # so it's fresh each time
@@ -34,8 +38,6 @@ HTML_DIR.mkdir(parents=True, exist_ok=True)
 # There are about 12_000 posts
 ZFILL = 5
 
-# Only set this to small for fast iteration
-MAX = 100_000
 
 
 def plain(text):
@@ -119,7 +121,7 @@ def build_parents():
     parents = {}
     all_messages = []
     # Open the .warc file
-    with open(warc_file_path, 'rb') as warc_file:
+    with open(WARC_FILE_PATH, 'rb') as warc_file:
         # Iterate over the records in the .warc file
         count = 0
         for record in ArchiveIterator(warc_file):
