@@ -17,15 +17,17 @@ from warcio.archiveiterator import ArchiveIterator
 # Only set this to small for fast iteration
 MAX = 200_000
 
-INDEX_TITLE = 'Mouthpiece Work Yahoo Group'
+# Change the INDEX_TITLE and the WARC_FILE_PATH to toggle between the two yahoo groups
+INDEX_TITLE = 'Mouthpiece Work 2, Acoustics Yahoo Group'
+WARC_FILE_PATH = 'warc/mouthpiecework2_acoustics.ylBYMHp.warc.gz'
+
+
 INDEX_SUBTITLE = 'The human readable archive'
 SOURCE_CODE = 'https://github.com/jackdesert/mouthpiece-work'
 
 # Create a Jinja2 environment
 ENV = Environment(loader=FileSystemLoader('templates'))
 
-# Path to your .warc file
-WARC_FILE_PATH = 'warc/mouthpiecework.UdewYP7.warc.gz'
 
 HTML_DIR = Path('threads')
 NON_SLUG_CHARS = re.compile(r'[^a-z0-9]')
