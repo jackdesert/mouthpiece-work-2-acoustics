@@ -37,17 +37,25 @@ These two groups appear:
 "MouthpieceWork2_Acoustics",200,"RESTRICTED","ALL","UNMODERATED",03/20/2010,"False","us","Saxophone","https://groups.yahoo.com/neo/groups/MouthpieceWork2_Acoustics/info","en-US",1600032198,"<div id=""ygrps-yiv-17195941"">This is a group dedicated to sharing information on sax mouthpiece acoustics and related experiments.  Discussions will also include saxophone acoustics in general since it is difficult to talk about mouthpieces without considering the entire system including the sax, reed and player.  If there is interest, other woodwinds may also be discussed.\n\nThis group is a spin-off from the well-established MouthpieceWork group.  That group will continue to focus more on woodwind mouthpiece making, repair and refacing.\n\nCheck out our original site at: http://launch.groups.yahoo.com/group/MouthpieceWork/\n\n\nWelcome! Keith Bradbury (aka MojoBari) - Moderator/Owner</div>","http://launch.groups.yahoo.com/group/MouthpieceWork/","false","/Music/Instruments/Wind Instruments/Saxophone/","MouthpieceWork2_Acoustics","SUBSCRIBERS","SUBSCRIBERS","false","ALL","N/A","Sax Mouthpiece Acoustic Science",44743559,78,"false","2020-08-06"
 
 
-Now search for:
+Now search for one of these:
 https://archive.org/search?query=subject%3A%22yahoo+groups%22+MouthpieceWork
+https://archive.org/search?query=subject%3A%22yahoo+groups%22+MouthpieceWork2_Acoustics
 
-and you get this file:
+When the search completes, click on the search result and you will land on one of thse:
+
 https://archive.org/details/yahoo-groups-2017-04-08T03-00-25Z-2632c7
+https://archive.org/details/yahoo-groups-2018-08-03T05-31-58Z-92e929
 
 Look for the "Web Archive GZ" on the right hand side
 
 
-This is the one we want:
+### Easy Version
+
+These are the two files we want:
 https://archive.org/download/yahoo-groups-2017-04-08T03-00-25Z-2632c7/mouthpiecework.UdewYP7.warc.gz
+https://archive.org/download/yahoo-groups-2018-08-03T05-31-58Z-92e929/mouthpiecework2_acoustics.ylBYMHp.warc.gz
+
+(Note these are also saved inside this repo in the /warc directory)
 
 
 How to use .warc files
