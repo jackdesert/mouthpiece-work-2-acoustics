@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    
+    <title>Sergei Dolgishev&#39;s side rail method with drill bit (Mouthpiece Work Yahoo Group)</title>
+
+    
+    
+    <link rel='stylesheet' href='../style.css'>
+
+</head>
+
+<body>
+    <div class='content'>
+        <main>
+            
+    <div class='breadcrumb'>
+      
+      <a href='..'>Mouthpiece Work</a> / Sergei Dolgishev&#39;s side rail method with drill bit
+    </div>
+    
+        <!--
+          Metadata:
+          {
+    "numRecords": 7,
+    "recFirstNextTopic": 0,
+    "recFirstLastPosted": 0,
+    "digestNum": 0,
+    "recFirstTopicStatus": 0,
+    "subject": "Sergei Dolgishev&#39;s side rail method with drill bit",
+    "yahooAlias": "mdc5220",
+    "author": "mdc5220",
+    "topicLastRecord": 1848,
+    "topicInfoStatus": 0,
+    "recFirstTopicFirstRecord": 0,
+    "topicStatus": 0,
+    "email": "chedoggy@...",
+    "firstRecInfoStatus": 2,
+    "parent": 0,
+    "recFirstTopicNextRecord": 0,
+    "prevTopic": 1828,
+    "recFirstDigestNum": 0,
+    "nextTopic": 1850,
+    "lastPosted": 1080949351,
+    "date": 1080084385,
+    "recFirstPrevTopic": 0,
+    "topicNextRecord": 1817,
+    "recFirstTopicLastRecord": 0,
+    "hasAttachments": 0,
+    "threadLevel": 0,
+    "topicPrevRecord": 0,
+    "recFirstTopicPrevRecord": 0,
+    "summary": "Dear Mates: Have been thinking about Sergei&#39;s rail method with the drill bits and am not mechanically inclined enough to figure out how this works. I applaud",
+    "length": 1419,
+    "messageId": 1816,
+    "recFirstNumRecords": 0,
+    "topicFirstRecord": 0
+}
+        -->
+
+        <div class='message' id='1816'>
+            <div class='message__share-icon'></div>
+            <div class='message__author'>FROM: mdc5220 (mdc5220)</div>
+            <div class='message__subject'>SUBJECT: Sergei Dolgishev&#39;s side rail method with drill bit</div>
+
+            <pre class='message__body'>Dear Mates: Have been thinking about Sergei&#39;s rail method with the 
+drill bits and am not mechanically inclined enough to figure out how 
+this works. I applaud you Sergei on your English it is not you but 
+me who can&#39;t figure it out.  Any help would be appreciated, 
+especially a photo like Mojo so generously shared on his STM work.  
+TIA mike 
+
+
+</pre>
+        </div>
+    
+        <!--
+          Metadata:
+          {
+    "numRecords": 0,
+    "recFirstNextTopic": 0,
+    "recFirstLastPosted": 0,
+    "digestNum": 0,
+    "recFirstTopicStatus": 0,
+    "subject": "Re: Sergei Dolgishev&#39;s side rail method with drill bit",
+    "yahooAlias": "dolgishev",
+    "author": "Sergei Dolgishev",
+    "topicLastRecord": 0,
+    "topicInfoStatus": 0,
+    "recFirstTopicFirstRecord": 0,
+    "topicStatus": 0,
+    "email": "dolgishev@...",
+    "firstRecInfoStatus": 2,
+    "parent": 1816,
+    "recFirstTopicNextRecord": 0,
+    "prevTopic": 0,
+    "recFirstDigestNum": 0,
+    "nextTopic": 0,
+    "lastPosted": 0,
+    "date": 1080146550,
+    "recFirstPrevTopic": 0,
+    "topicNextRecord": 1818,
+    "recFirstTopicLastRecord": 0,
+    "hasAttachments": 0,
+    "threadLevel": 0,
+    "topicPrevRecord": 1816,
+    "recFirstTopicPrevRecord": 0,
+    "summary": "... how ... Hi! For side-rail work I use the program on QBasic for MS-DOS 6.2 which works well under Windows too. Other BASIC compilers and interpreters also",
+    "length": 3878,
+    "messageId": 1817,
+    "recFirstNumRecords": 0,
+    "topicFirstRecord": 1816
+}
+        -->
+
+        <div class='message' id='1817'>
+            <div class='message__share-icon'></div>
+            <div class='message__author'>FROM: dolgishev (Sergei Dolgishev)</div>
+            <div class='message__subject'>SUBJECT: Re: Sergei Dolgishev&#39;s side rail method with drill bit</div>
+
+            <pre class='message__body'>--- In MouthpieceWork@yahoogroups.com, "mdc5220" &lt;chedoggy@e...> 
+wrote:
+> Dear Mates: Have been thinking about Sergei&#39;s rail method with the 
+> drill bits and am not mechanically inclined enough to figure out 
+how 
+> this works. I applaud you Sergei on your English it is not you but 
+> me who can&#39;t figure it out.  Any help would be appreciated, 
+> especially a photo like Mojo so generously shared on his STM work.  
+> TIA mike
+
+Hi!
+For side-rail work I use the program on QBasic for MS-DOS 6.2 which 
+works well under Windows too. Other BASIC compilers and interpreters 
+also should work.
+
+CLS
+OPEN "FACING.TXT" FOR OUTPUT AS #1
+INPUT "tip opening (mm)"; H
+INPUT "facing length (mm)"; L
+PRINT #1, "Parabolic curve"
+PRINT #1, "tip opening ="; H; "mm"
+PRINT #1, "facing length ="; L; "mm"
+PRINT #1, "drill bits are: 7.8; 5.0; 3.5; 2.5; 1.5; 1.0; 0.5 mm"
+PRINT #1, "(d = feeler thickn., L = tip-feeler dist., X = tip-
+drillbit dist.)"
+PRINT #1, "d(mm)  L(mm)  X(7.8) X(5.0) X(3.5) X(2.5) X(1.5) X(1.0) X
+(0.5) "
+c = L * L / H
+PRINT #1, USING "##.##  "; 0; L;
+PRINT #1, USING "###.#  "; 0; 0; 0; 0; 0; 0; 0
+FOR d = .05 TO (H + .01) STEP .05
+  b = L - SQR(c * d)
+  x1 = .5 * (c * 7.8 / (L - b) + L + b)
+  x2 = .5 * (c * 5! / (L - b) + L + b)
+  x3 = .5 * (c * 3.5 / (L - b) + L + b)
+  x4 = .5 * (c * 2.5 / (L - b) + L + b)
+  x5 = .5 * (c * 1.5 / (L - b) + L + b)
+  x6 = .5 * (c * 1! / (L - b) + L + b)
+  x7 = .5 * (c * .5 / (L - b) + L + b)
+  IF (x1 &lt; L OR x1 > 3 * L) THEN x1 = 0
+  IF (x2 &lt; L OR x2 > 3 * L) THEN x2 = 0
+  IF (x3 &lt; L OR x3 > 3 * L) THEN x3 = 0
+  IF (x4 &lt; L OR x4 > 3 * L) THEN x4 = 0
+  IF (x5 &lt; L OR x5 > 3 * L) THEN x5 = 0
+  IF (x6 &lt; L OR x6 > 3 * L) THEN x6 = 0
+  IF (x7 &lt; L OR x7 > 3 * L) THEN x7 = 0
+PRINT #1, USING "##.##  "; d; b;
+PRINT #1, USING "###.#  "; x1; x2; x3; x4; x5; x6; x7
+NEXT
+CLOSE
+PRINT "Results are in &#39;FACING.TXT&#39;!"
+END
+
+The program gives out a file "FACING.TXT" with a heap of numbers. The 
+first two columns is a dependence of tip-feeler distance from feeler 
+thickness (Facing curve). The other 7 columns are distances from MP-
+tip up to drill bit for processing the given area of the curve, 
+accordingly for 7 various diameters of drills. If number is "0.0", 
+processing of this area by such drill is impossible.
+  Unfortunately I have no photo with how I do the work. Very 
+important: it is necessary to move the mouthpiece always 
+perpendicularly to the drill bit. Only so the similarity (equality) 
+of both rails will be provided. I move the MP some mm  forward and 
+back in both directions from the calculated value; if processing the 
+tip area  - only to the direction away from the drill bit.
+After the stuff removal I make measurements, and so on.  The work 
+takes a lot of time, but the result is good enough.
+
+Sergei
+
+
+
+</pre>
+        </div>
+    
+        <!--
+          Metadata:
+          {
+    "numRecords": 0,
+    "recFirstNextTopic": 0,
+    "recFirstLastPosted": 0,
+    "digestNum": 0,
+    "recFirstTopicStatus": 0,
+    "subject": "Add: Re: Sergei Dolgishev&#39;s side rail method with drill bit",
+    "yahooAlias": "dolgishev",
+    "author": "Sergei Dolgishev",
+    "topicLastRecord": 0,
+    "topicInfoStatus": 0,
+    "recFirstTopicFirstRecord": 0,
+    "topicStatus": 0,
+    "email": "dolgishev@...",
+    "firstRecInfoStatus": 2,
+    "parent": 1817,
+    "recFirstTopicNextRecord": 0,
+    "prevTopic": 0,
+    "recFirstDigestNum": 0,
+    "nextTopic": 0,
+    "lastPosted": 0,
+    "date": 1080161748,
+    "recFirstPrevTopic": 0,
+    "topicNextRecord": 1819,
+    "recFirstTopicLastRecord": 0,
+    "hasAttachments": 0,
+    "threadLevel": 0,
+    "topicPrevRecord": 1817,
+    "recFirstTopicPrevRecord": 0,
+    "summary": "In some long lines of the program there was a carry for other line. So have it in mind if you will test the program. It is necessary to keep the MP&#39;s plane of",
+    "length": 1390,
+    "messageId": 1818,
+    "recFirstNumRecords": 0,
+    "topicFirstRecord": 1816
+}
+        -->
+
+        <div class='message' id='1818'>
+            <div class='message__share-icon'></div>
+            <div class='message__author'>FROM: dolgishev (Sergei Dolgishev)</div>
+            <div class='message__subject'>SUBJECT: Add: Re: Sergei Dolgishev&#39;s side rail method with drill bit</div>
+
+            <pre class='message__body'>In some long lines of the program there was a carry for other line. 
+So have it in mind if you will test the program.
+   It is necessary to keep the MP&#39;s plane of symmetry perpendicularly 
+to the axis of a drill bit (or a cylindrical rod), while working on 
+side rails.
+
+Sergei
+
+
+</pre>
+        </div>
+    
+        <!--
+          Metadata:
+          {
+    "numRecords": 0,
+    "recFirstNextTopic": 0,
+    "recFirstLastPosted": 0,
+    "digestNum": 0,
+    "recFirstTopicStatus": 0,
+    "subject": "Re: Sergei Dolgishev&#39;s side rail method with drill bit",
+    "yahooAlias": "henk_bass",
+    "author": "henk_bass",
+    "topicLastRecord": 0,
+    "topicInfoStatus": 0,
+    "recFirstTopicFirstRecord": 0,
+    "topicStatus": 0,
+    "email": "henk.spies@...",
+    "firstRecInfoStatus": 2,
+    "parent": 1817,
+    "recFirstTopicNextRecord": 0,
+    "prevTopic": 0,
+    "recFirstDigestNum": 0,
+    "nextTopic": 0,
+    "lastPosted": 0,
+    "date": 1080215287,
+    "recFirstPrevTopic": 0,
+    "topicNextRecord": 1820,
+    "recFirstTopicLastRecord": 0,
+    "hasAttachments": 0,
+    "threadLevel": 0,
+    "topicPrevRecord": 1818,
+    "recFirstTopicPrevRecord": 0,
+    "summary": "Hi Sergei, Thanks for sharing your findings! Like Paul, I especially find the part with the drill bits very ingenious. I have not yet have time to look into",
+    "length": 1759,
+    "messageId": 1819,
+    "recFirstNumRecords": 0,
+    "topicFirstRecord": 1816
+}
+        -->
+
+        <div class='message' id='1819'>
+            <div class='message__share-icon'></div>
+            <div class='message__author'>FROM: henk_bass (henk_bass)</div>
+            <div class='message__subject'>SUBJECT: Re: Sergei Dolgishev&#39;s side rail method with drill bit</div>
+
+            <pre class='message__body'>Hi Sergei,
+
+Thanks for sharing your findings! Like Paul, I especially find the 
+part with the drill bits very ingenious. I have not yet have time to 
+look into your facing-curve calculations in-depth, but I&#39;d be curious 
+to know why you think a parabolic facing curve is better, and in 
+which ways. And are you talking about a parabolic curve that has most 
+curve at the tip of the mouthpiece, or at the table? Or in other 
+words: a curve that is more comparable to a short facing (in the 
+sense that these are sometimes more &#39;straight&#39; than an arc of a 
+circle), or comparable to Mojo&#39;s &#39;flip up&#39; at the the tip of the 
+mouthpiece?
+Thanks
+Henk
+
+
+
+</pre>
+        </div>
+    
+        <!--
+          Metadata:
+          {
+    "numRecords": 0,
+    "recFirstNextTopic": 0,
+    "recFirstLastPosted": 0,
+    "digestNum": 0,
+    "recFirstTopicStatus": 0,
+    "subject": "Re: Parabolic Facing Curves",
+    "yahooAlias": "kwbradbury",
+    "author": "Keith Bradbury",
+    "topicLastRecord": 0,
+    "topicInfoStatus": 0,
+    "recFirstTopicFirstRecord": 0,
+    "topicStatus": 0,
+    "email": "kwbradbury@...",
+    "firstRecInfoStatus": 2,
+    "parent": 1819,
+    "recFirstTopicNextRecord": 0,
+    "prevTopic": 0,
+    "recFirstDigestNum": 0,
+    "nextTopic": 0,
+    "lastPosted": 0,
+    "date": 1080243630,
+    "recFirstPrevTopic": 0,
+    "topicNextRecord": 1822,
+    "recFirstTopicLastRecord": 0,
+    "hasAttachments": 0,
+    "threadLevel": 0,
+    "topicPrevRecord": 1819,
+    "recFirstTopicPrevRecord": 0,
+    "summary": "I think the application of the parabolic curve to mouthpiece facings has a slightly tighter curve near the table and a gradually flatter curve towards the tip.",
+    "length": 2044,
+    "messageId": 1820,
+    "recFirstNumRecords": 0,
+    "topicFirstRecord": 1816
+}
+        -->
+
+        <div class='message' id='1820'>
+            <div class='message__share-icon'></div>
+            <div class='message__author'>FROM: kwbradbury (Keith Bradbury)</div>
+            <div class='message__subject'>SUBJECT: Re: Parabolic Facing Curves</div>
+
+            <pre class='message__body'>I think the application of the parabolic curve to mouthpiece facings has a
+slightly tighter curve near the table and a gradually flatter curve towards
+the tip.  
+
+I&#39;ve heard that parabolic curves are used more in clarinet facings, but
+they use radial curves too.  I&#39;ve only done a little bit of clarinet
+work/experiments.  I think their needs are different than a sax.  Sax
+mouthpieces vary a lot in geometry (baffles, etc).  Clarinet MPs have more
+variation in facing curves.  Take a look at Ed Pillinger&#39;s site for some
+descriptions of the many variations.  
+
+I&#39;m finding that sax mouthpiece facings can vary to have less curve near
+the table and more curve near the tip.  I call this an elliptical curve. 
+This is different than the "flip tip" I have discussed in the past that is
+good for high altissimo.  This flip is more than 10X the flip of a gentle
+elliptical curve.
+
+__________________________________
+Do you Yahoo!?
+Yahoo! Finance Tax Center - File online. File on time.
+http://taxes.yahoo.com/filing.html
+
+</pre>
+        </div>
+    
+        <!--
+          Metadata:
+          {
+    "numRecords": 0,
+    "recFirstNextTopic": 0,
+    "recFirstLastPosted": 0,
+    "digestNum": 0,
+    "recFirstTopicStatus": 0,
+    "subject": "Re: Parabolic Facing Curves",
+    "yahooAlias": "dolgishev",
+    "author": "Sergei Dolgishev",
+    "topicLastRecord": 0,
+    "topicInfoStatus": 0,
+    "recFirstTopicFirstRecord": 0,
+    "topicStatus": 0,
+    "email": "dolgishev@...",
+    "firstRecInfoStatus": 2,
+    "parent": 1820,
+    "recFirstTopicNextRecord": 0,
+    "prevTopic": 0,
+    "recFirstDigestNum": 0,
+    "nextTopic": 0,
+    "lastPosted": 0,
+    "date": 1080310062,
+    "recFirstPrevTopic": 0,
+    "topicNextRecord": 1848,
+    "recFirstTopicLastRecord": 0,
+    "hasAttachments": 0,
+    "threadLevel": 0,
+    "topicPrevRecord": 1820,
+    "recFirstTopicPrevRecord": 0,
+    "summary": "Hi! First I shall notice, that at the ratio of a curve length to a tip opening about 10 (as at the majority of mouthpieces), the difference between an arc of a",
+    "length": 5897,
+    "messageId": 1822,
+    "recFirstNumRecords": 0,
+    "topicFirstRecord": 1816
+}
+        -->
+
+        <div class='message' id='1822'>
+            <div class='message__share-icon'></div>
+            <div class='message__author'>FROM: dolgishev (Sergei Dolgishev)</div>
+            <div class='message__subject'>SUBJECT: Re: Parabolic Facing Curves</div>
+
+            <pre class='message__body'>Hi!
+    First I shall notice, that at the ratio of a curve length to a tip opening about 10 (as at the majority of mouthpieces), the difference between an arc of a circle and a parabola is insignificant and does not exceed 1% in any point. The parabola passes a little more "straight" than the arc of circle.
+    The parabola is characterized by that: its steepness (the first derivative) grows proportionally to distance from the point of its beginning. I think, it is favorable for vibration of a reed. However different reeds have various curves of a cut! Therefore it is impossible to make an "universal" mouthpiece to which any reeds will suit. I do not assert, that the parabola is an ideal curve for all occasions. I have only found it is best for my needs, especially for mouthpieces with big openings. Besides, parabola is the simplest curve, excepting a straight line.
+    I agree that the &#39;flip up&#39; at the tip of a mouthpiece facilitates altissimo, but such mouthpiece will demand a reed with thin tip which wear out faster. If reeds with normal or thick tip will be used, resistance in the "normal" register will be raised. I think, resistance at saxophone playing should be about same, as at singing, in no event excessive. The playing should bring pleasure, instead of tortures. It is only my opinion.
+    Altissimo is reached by reduction of the mouth volume, by raising of tongue, but not bite! When some guys write that they have a failure or a break in the altissimo register, it means they have wrong technics of tongue in this register. If the mouthpiece has a smooth facing curve (for example parabolic or circle arc) which passes up to the very tip of mouthpiece, and the tongue is in correct position in mouth, the altissimo will not be a problem.
+Sergei
+
+</pre>
+        </div>
+    
+        <!--
+          Metadata:
+          {
+    "numRecords": 0,
+    "recFirstNextTopic": 0,
+    "recFirstLastPosted": 0,
+    "digestNum": 0,
+    "recFirstTopicStatus": 0,
+    "subject": "Re: Parabolic Facing Curves",
+    "yahooAlias": "henk_bass",
+    "author": "henk_bass",
+    "topicLastRecord": 0,
+    "topicInfoStatus": 0,
+    "recFirstTopicFirstRecord": 0,
+    "topicStatus": 0,
+    "email": "henk.spies@...",
+    "firstRecInfoStatus": 2,
+    "parent": 1822,
+    "recFirstTopicNextRecord": 0,
+    "prevTopic": 0,
+    "recFirstDigestNum": 0,
+    "nextTopic": 0,
+    "lastPosted": 0,
+    "date": 1080949351,
+    "recFirstPrevTopic": 0,
+    "topicNextRecord": 0,
+    "recFirstTopicLastRecord": 0,
+    "hasAttachments": 0,
+    "threadLevel": 0,
+    "topicPrevRecord": 1822,
+    "recFirstTopicPrevRecord": 0,
+    "summary": "Some years ago I experimented with different facing curves. I worked mostly by eye, wetting the rails and rolling them on a glass plate to make sure there was",
+    "length": 3609,
+    "messageId": 1848,
+    "recFirstNumRecords": 0,
+    "topicFirstRecord": 1816
+}
+        -->
+
+        <div class='message' id='1848'>
+            <div class='message__share-icon'></div>
+            <div class='message__author'>FROM: henk_bass (henk_bass)</div>
+            <div class='message__subject'>SUBJECT: Re: Parabolic Facing Curves</div>
+
+            <pre class='message__body'>Some years ago I experimented with different facing curves. I worked 
+mostly by eye, wetting the rails and rolling them on a glass plate to 
+make sure there was an even curve, and no bumps or flat spots. I did 
+use feeler gauges to balance the rails. I made some &#39;elliptical&#39; as 
+well as &#39;parabolic&#39; facing curves. I should add that most of my 
+experiments were with large tipopening (.90 / 2.30 mm)soprano 
+mouthpieces. Initially I liked the &#39;elliptical&#39; curve better, as it 
+was easier to play (comparable to a smaller tipopening). I also 
+thought altissimo was a little easier. However, later I changed my 
+mind, as I found that especially the &#39;low&#39; altissimo range seemed to 
+profit from this type curve, not the higher altissimo range. The 
+higher altissimo range became easier when I changed to a &#39;parabolic&#39; 
+facing curve, and also the sound improved in the sens that there was 
+more &#39;core&#39; to the sound (more of the back of the reed is vibrating). 
+My &#39;theory&#39; is that the different overtones (as in fingering low Bb 
+and blowing overtones from the same note) of a note are positioned 
+somewhere on the facing curve. Different facing curves position the 
+overtones at different locations (at greater or closer) distance to 
+one another. I think this has to do with relative blowing resistance 
+at different locations along the curve, which is dependent on the 
+curve as well as the cut of the reed.
+I like to have the different overtones relative close together, which 
+means that I like some more resistance in the &#39;easy&#39; ranges, to bring 
+the normal and the altissimo range more in line with each other (i.e. 
+not a clear &#39;break&#39;). 
+Too &#39;parabolic&#39; (overtones too close together) and the mouthpiece may 
+become prone to squeeking. But there is a &#39;magic spot&#39; where all 
+overtones - and the altissimo range - are nicely balanced and easily 
+accessible. Then it is like riding a sports car.
+Of course there are a lot of other factors involved in this as well: 
+reed cut, chamber shape, baffle shape, interior mouth dimensions and 
+so on.
+I am not completely sure about the validity of this &#39;theory&#39;. I have 
+not yet thought about it from a physical or accoustic angle, but it 
+seems to sum up my practical experiences so far quite well.
+The mouthpiece I have settled on, and that I have been playing for 
+the last few years has a short facing (16 mm), large tipopening (2.30 
+mm /.90), and a curve that is an arc of a circle with a small flat 
+spot at the tip. I use french cut reeds (Marca 1,5-2).
+
+
+</pre>
+        </div>
+    
+
+        </main>
+        <footer>
+            Source code available <a href='https://github.com/jackdesert/mouthpiece-work'>here</a>
+        </footer>
+    </div>
+    
+    <script src='../assets/script.js'></script>
+</body>
+</html>
