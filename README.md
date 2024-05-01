@@ -70,6 +70,25 @@ See repo mouthpiece-work-yahoo-group on
 Deploying
 ---------
 
+### Deploying mouthpiece-work
+
+    git checkout main
+    python run.py
+    git add threads
+    git commit -am'YOUR MESSAGE'
+    git push origin HEAD
+
+### Deploying mouthpiece-work-2-acoustics
+
+    git checkout acoustics
+    git rebase main (This will cause conflicts...you can resolve by deleting threads directory)
+    python run.py
+    git add threads
+    git commit -am'YOUR MESSAGE'
+    git push acoustics HEAD
+
+
+
 Use `git push` to deploy.
 
 Note there are two deployments:
