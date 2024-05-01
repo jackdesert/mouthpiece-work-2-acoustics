@@ -70,6 +70,13 @@ See repo mouthpiece-work-yahoo-group on
 Deploying
 ---------
 
+There are two remotes:
+    - git@gitlab.com:jackdesert/mouthpiece-work
+    - git@gitlab.com:jackdesert/mouthpiece-work-2-acoustics
+
+I keep a single repository on my local machine, and deploy different
+branches to the two remotes.
+
 ### Deploying mouthpiece-work
 
     git checkout main
@@ -80,23 +87,13 @@ Deploying
 
 ### Deploying mouthpiece-work-2-acoustics
 
-    git checkout acoustics
+    git checkout acoustics-no-merge
     git rebase main (This will cause conflicts...you can resolve by deleting threads directory)
     python run.py
     git add threads
     git commit -am'YOUR MESSAGE'
     git push acoustics HEAD
 
-
-
-Use `git push` to deploy.
-
-Note there are two deployments:
-- push the "main" branch to git@github.com:jackdesert/mouthpiece-work
-- push the "acoustics" branch to git@github.com:jackdesert/mouthpiece-work-2-acoustics
-
-Note in between these pushes you want to run `python run.py` and be sure to `git add threads`
-to make sure all your work is included.
 
 ### Why Two Deployments
 
