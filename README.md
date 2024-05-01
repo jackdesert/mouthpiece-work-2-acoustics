@@ -70,14 +70,30 @@ See repo mouthpiece-work-yahoo-group on
 Deploying
 ---------
 
-Use `git push` to deploy.
+There are two remotes:
+    - git@gitlab.com:jackdesert/mouthpiece-work
+    - git@gitlab.com:jackdesert/mouthpiece-work-2-acoustics
 
-Note there are two deployments:
-- push the "main" branch to git@github.com:jackdesert/mouthpiece-work
-- push the "acoustics" branch to git@github.com:jackdesert/mouthpiece-work-2-acoustics
+I keep a single repository on my local machine, and deploy different
+branches to the two remotes.
 
-Note in between these pushes you want to run `python run.py` and be sure to `git add threads`
-to make sure all your work is included.
+### Deploying mouthpiece-work
+
+    git checkout main
+    python run.py
+    git add threads
+    git commit -am'YOUR MESSAGE'
+    git push origin HEAD
+
+### Deploying mouthpiece-work-2-acoustics
+
+    git checkout acoustics-no-merge
+    git rebase main (This will cause conflicts...you can resolve by deleting threads directory)
+    python run.py
+    git add threads
+    git commit -am'YOUR MESSAGE'
+    git push acoustics HEAD
+
 
 ### Why Two Deployments
 
