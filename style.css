@@ -32,6 +32,29 @@ pre {
 }
 
 
+.message
+{
+  position: relative;
+}
+
+.message__share-icon
+{
+  margin: 0.3rem;
+  color: #555;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 2rem;
+  width: 22rem;
+  background-image: url('../assets/share-icon.png');
+  background-size:  2rem 2rem;
+  background-repeat: no-repeat;
+  background-position: right;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 2rem;
+}
+
 .message__body,
 .message__author,
 .message__subject

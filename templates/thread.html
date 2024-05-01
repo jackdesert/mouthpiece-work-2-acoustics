@@ -19,7 +19,8 @@
           {{ message.meta_json }}
         -->
 
-        <div class='message'>
+        <div class='message' id='{{message.id_}}'>
+            <div class='message__share-icon'></div>
             <div class='message__author'>FROM: {{ message.author }}</div>
             <div class='message__subject'>SUBJECT: {{ message.subject }}</div>
 
