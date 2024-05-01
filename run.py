@@ -15,7 +15,7 @@ from jinja2 import Environment, FileSystemLoader
 from warcio.archiveiterator import ArchiveIterator
 
 # Only set this to small for fast iteration
-MAX = 2000_000
+MAX = 200_000
 
 INDEX_TITLE = 'Mouthpiece Work Yahoo Group'
 INDEX_SUBTITLE = 'The human readable archive'
@@ -37,6 +37,9 @@ SEPARATOR = '---------------------------'
 # so it's fresh each time
 shutil.rmtree(str(HTML_DIR), ignore_errors=True)
 HTML_DIR.mkdir(parents=True, exist_ok=True)
+
+# Copy assets into threads folder so can access them easily from github pages
+shutil.copytree('assets', str(HTML_DIR / 'assets'))
 
 # There are about 12_000 posts
 ZFILL = 5

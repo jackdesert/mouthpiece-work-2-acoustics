@@ -46,7 +46,8 @@ pre {
   top: 0;
   height: 2rem;
   width: 22rem;
-  background-image: url('../assets/share-icon.png');
+  /* Note this assets dir is the one we copy into the threads dir */
+  background-image: url('assets/share-icon.png');
   background-size:  2rem 2rem;
   background-repeat: no-repeat;
   background-position: right;

@@ -65,3 +65,27 @@ https://archive-it.org/post/the-stack-warc-file/
 
 
 See repo mouthpiece-work-yahoo-group on
+
+
+Deploying
+---------
+
+Use `git push` to deploy.
+
+Note there are two deployments:
+- push the "main" branch to git@github.com:jackdesert/mouthpiece-work
+- push the "acoustics" branch to git@github.com:jackdesert/mouthpiece-work-2-acoustics
+
+Note in between these pushes you want to run `python run.py` and be sure to `git add threads`
+to make sure all your work is included.
+
+### Why Two Deployments
+
+I did not see an easy way to get two github pages from a single repo.
+So I use a single repo locally, but push to two different remotes.
+Each remote is set up as a github page.
+
+
+### How to see `git diff` without threads/ overpowering
+
+Try: `git add threads`, then `git diff`
